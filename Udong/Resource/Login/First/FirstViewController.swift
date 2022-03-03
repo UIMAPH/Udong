@@ -56,5 +56,6 @@ class FirstViewController: UIViewController {
     
     func settingUI(){
         
+        
     }
 }

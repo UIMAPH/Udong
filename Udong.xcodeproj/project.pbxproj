@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4703685627D62BB200395333 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4703685527D62BB200395333 /* TabBarViewController.swift */; };
+		47475AD827D34EC900A5C24D /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47475AD727D34EC900A5C24D /* StoreDetailViewController.swift */; };
 		5A688CB4499EAB6C741ACE65 /* libPods-Udong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA434DF8647ECF1B067F429D /* libPods-Udong.a */; };
 		D41075C827D136EC00B0E0E0 /* ModelSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41075C727D136EC00B0E0E0 /* ModelSample.swift */; };
 		D422A65727D0F25D00F72755 /* AccountsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422A65627D0F25D00F72755 /* AccountsApi.swift */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		1B1E52924820C648D6E33527 /* Pods-Udong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udong.debug.xcconfig"; path = "Target Support Files/Pods-Udong/Pods-Udong.debug.xcconfig"; sourceTree = "<group>"; };
+		4703685527D62BB200395333 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		47475AD727D34EC900A5C24D /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		936AD1EFEEA77D71C6B51513 /* Pods-Udong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udong.release.xcconfig"; path = "Target Support Files/Pods-Udong/Pods-Udong.release.xcconfig"; sourceTree = "<group>"; };
 		AA434DF8647ECF1B067F429D /* libPods-Udong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Udong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41075C727D136EC00B0E0E0 /* ModelSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSample.swift; sourceTree = "<group>"; };
@@ -69,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47475AD227D34E0400A5C24D /* bsy */ = {
+			isa = PBXGroup;
+			children = (
+				47475AD727D34EC900A5C24D /* StoreDetailViewController.swift */,
+				4703685527D62BB200395333 /* TabBarViewController.swift */,
+			);
+			path = bsy;
+			sourceTree = "<group>";
+		};
 		B90674FCF581896C87C36B49 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +145,7 @@
 		D448BDB627CE442A00EE5E98 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				47475AD227D34E0400A5C24D /* bsy */,
 				D448BDB727CE443700EE5E98 /* Login */,
 			);
 			path = Resource;
@@ -299,6 +313,8 @@
 				D422A65927D0F27100F72755 /* APIConstants.swift in Sources */,
 				D466006A27CE3402003CA35D /* AppDelegate.swift in Sources */,
 				D466006C27CE3402003CA35D /* SceneDelegate.swift in Sources */,
+				47475AD827D34EC900A5C24D /* StoreDetailViewController.swift in Sources */,
+				4703685627D62BB200395333 /* TabBarViewController.swift in Sources */,
 				D41075C827D136EC00B0E0E0 /* ModelSample.swift in Sources */,
 				D422A65727D0F25D00F72755 /* AccountsApi.swift in Sources */,
 			);
@@ -465,7 +481,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pccommen.Udong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/changgyoseo/Projects/Udong/Headers/Udong-Bridging-header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/sangyeon/Documents/12191613/redmushroom/Udong_IOS/Headers/Udong-Bridging-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -502,7 +518,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pccommen.Udong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/changgyoseo/Projects/Udong/Headers/Udong-Bridging-header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/sangyeon/Documents/12191613/redmushroom/Udong_IOS/Headers/Udong-Bridging-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

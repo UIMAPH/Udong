@@ -12,7 +12,7 @@ class StoreDetailViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //view.backgroundColor = UIColor(red: 0xA8, green: 0xE2, blue: 0xFF)
+        view.backgroundColor = .white
         self.navigationBarSetting()
         self.displaySetting()
     }
@@ -25,55 +25,78 @@ extension StoreDetailViewController{
         let backButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(backBtnDidTap(_:)))
         backButtonItem.tintColor = .black
         
-        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         
-        let storeName = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        storeName.text = "store name"
+        let storeName = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        storeName.text = "name"
+        storeName.font = UIFont.boldSystemFont(ofSize: 23)
         
-        let storeCategory = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 50))
-        storeCategory.text = "store category"
+        let storeCategory = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        storeCategory.text = "category"
         
         containerView.addSubview(storeName)
         containerView.addSubview(storeCategory)
+        storeName.snp.makeConstraints{
+            $0.centerX.equalTo(containerView)
+            $0.top.equalTo(containerView.safeAreaLayoutGuide).offset(-15)
+        }
+        storeCategory.snp.makeConstraints{
+            $0.leading.equalTo(storeName.snp.trailing).offset(5)
+            $0.top.equalTo(containerView.safeAreaLayoutGuide).offset(-10)
+        }
         
-        let reviewWrite = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        reviewWrite.text = "review write"
+        //let reviewWrite = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        let reviewWrite = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        reviewWrite.setTitle("review", for: .normal)
+        reviewWrite.setTitleColor(.black, for: .normal)
+        reviewWrite.addTarget(self, action: #selector(reviewWriteBtnDidTap(_:)), for: .touchUpInside)
         let reviewWriteButtonItem = UIBarButtonItem(customView: reviewWrite)
         
         navigationItem.leftBarButtonItem = backButtonItem
-        //navigationItem.titleView = containerView
+        navigationItem.titleView = containerView
         navigationItem.rightBarButtonItem = reviewWriteButtonItem
     }
     
     @objc private func backBtnDidTap(_ sender: Any){
-        print("tap back button")
+        print("tap back button tabp")
         self.navigationController?.pushViewController(StoreDetailViewController(), animated: true)
+    }
+    
+    @objc private func reviewWriteBtnDidTap(_ sender: Any){
+        print("review write button tap")
     }
 }
 
 // MARK: display setting
 
 extension StoreDetailViewController{
+    
+    // MARK: 방문수, 리뷰수, 단골수
     private func displaySetting(){
         let numList = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         numList.backgroundColor = .white
         numList.tintColor = .white
         
-        let visitNum = "0"  // 백에서 방문수 받아와 저장 (String으로)
         let visitNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        visitNumLabel.text = "방문수 " + visitNum
+        visitNumLabel.text = "방문수 "
         
-        let reviewNum = "0"  // 백에서 리뷰수 받아와 저장 (String으로)
         let reviewNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        reviewNumLabel.text = "리뷰수 " + reviewNum
+        reviewNumLabel.text = "리뷰수 "
         
-        let regularNum = "0"  // 백에서 단골수 받아와 저장 (String으로)
         let regularNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        regularNumLabel.text = "단골수 " + regularNum
+        regularNumLabel.text = "단골수 "
         
-        numList.addSubview(visitNumLabel)
-        numList.addSubview(reviewNumLabel)
-        numList.addSubview(regularNumLabel)
+        var numArr = ["0", "0", "0"] // 백에서 방문수, 리뷰수, 단골수 받아와 저장 (String으로)
+        var labelArr = [visitNumLabel, reviewNumLabel, regularNumLabel]
+        
+        for i in 0..<3{
+            numArr[i] = "0"
+            labelArr[i].font = labelArr[i].font.withSize(16)
+            labelArr[i].textColor = .systemBlue
+            labelArr[i].text! += numArr[i]
+            
+            numList.addSubview(labelArr[i])
+        }
         
         reviewNumLabel.snp.makeConstraints{
             $0.centerX.equalTo(numList.snp.centerX)
@@ -90,6 +113,7 @@ extension StoreDetailViewController{
             $0.top.equalTo(self.view.safeAreaLayoutGuide)
             $0.width.equalTo(self.view.safeAreaLayoutGuide)
         }
+        numList.tintColor = .white
     }
 }
 

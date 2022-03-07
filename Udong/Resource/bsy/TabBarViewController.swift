@@ -22,7 +22,7 @@ class TabBarViewController: UITabBarController{
     
     private func settingTabBar(){
         let homeTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), tag: 0)
-        homeTabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: -10, right: 0)
+        //homeTabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: -10, right: 0)
         let searchTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "magnifyingglass"), tag: 1)
         let cameraTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "camera.circle.fill"), tag: 2)
         let boardTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "list.bullet.rectangle.portrait"), tag: 3)

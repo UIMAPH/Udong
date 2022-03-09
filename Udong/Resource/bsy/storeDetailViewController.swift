@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 import SnapKit
 
 class StoreDetailViewController: UIViewController{
@@ -15,6 +16,7 @@ class StoreDetailViewController: UIViewController{
         view.backgroundColor = .white
         self.navigationBarSetting()
         self.displaySetting()
+        print(UIScreen.main.bounds.width)
     }
 }
 
@@ -27,12 +29,18 @@ extension StoreDetailViewController{
         
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         
-        let storeName = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        storeName.text = "name"
-        storeName.font = UIFont.boldSystemFont(ofSize: 23)
+        let storeName: UILabel = {
+            let storeName = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            storeName.text = "name"
+            storeName.font = UIFont.boldSystemFont(ofSize: 23)
+            return storeName
+        }()
         
-        let storeCategory = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        storeCategory.text = "category"
+        let storeCategory: UILabel = {
+            let storeCategory = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            storeCategory.text = "category"
+            return storeCategory
+        }()
         
         containerView.addSubview(storeName)
         containerView.addSubview(storeCategory)
@@ -45,11 +53,15 @@ extension StoreDetailViewController{
             $0.top.equalTo(containerView.safeAreaLayoutGuide).offset(-10)
         }
         
-        //let reviewWrite = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        let reviewWrite = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        reviewWrite.setTitle("review", for: .normal)
-        reviewWrite.setTitleColor(.black, for: .normal)
-        reviewWrite.addTarget(self, action: #selector(reviewWriteBtnDidTap(_:)), for: .touchUpInside)
+        
+        let reviewWrite: UIButton = {
+            let reviewWrite = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            reviewWrite.setTitle("review", for: .normal)
+            reviewWrite.setTitleColor(.black, for: .normal)
+            reviewWrite.addTarget(self, action: #selector(reviewWriteBtnDidTap(_:)), for: .touchUpInside)
+            return reviewWrite
+        }()
+        
         let reviewWriteButtonItem = UIBarButtonItem(customView: reviewWrite)
         
         navigationItem.leftBarButtonItem = backButtonItem
@@ -71,11 +83,15 @@ extension StoreDetailViewController{
 
 extension StoreDetailViewController{
     
-    // MARK: 방문수, 리뷰수, 단골수
     private func displaySetting(){
-        let numList = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
-        numList.backgroundColor = .white
-        numList.tintColor = .white
+        
+        // MARK: 방문수, 리뷰수, 단골수
+        
+        let numList: UIView = {
+            let numList = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 400))
+            numList.backgroundColor = .white
+            return numList
+        }()
         
         let visitNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         visitNumLabel.text = "방문수 "
@@ -112,9 +128,150 @@ extension StoreDetailViewController{
         numList.snp.makeConstraints{
             $0.top.equalTo(self.view.safeAreaLayoutGuide)
             $0.width.equalTo(self.view.safeAreaLayoutGuide)
+            $0.height.equalTo(20)
         }
-        numList.tintColor = .white
+        
+        
+        // MARK: 사용자의 단골 등급
+        
+        let tierView: UIView = {
+            let tierView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
+            tierView.backgroundColor = .white
+            return tierView
+        }()
+        
+        let tierImage = UIImage(named: "new-moon.png") // 티어 이미지 설정
+        guard var tierImage = tierImage else{
+            print("tier image is nil")
+            return
+        }
+        tierImage = self.resizeImage(image: tierImage, targetSize: CGSize(width: 30, height: 30))!
+        let tierImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        tierImageView.image = tierImage
+        
+        let tierName: UILabel = {
+            let tierName = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            tierName.text = "tier name"  // 티어 String)
+            tierName.font = UIFont.boldSystemFont(ofSize: 14)
+            return tierName
+        }()
+        
+        let myvisitNum = "0"  // 유저의 방문수 받아와 저장 (String)
+        let myVisitNumLabel: UILabel = {
+            let myVisitNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            myVisitNumLabel.text = "나는 이 가게를 " + myvisitNum + "번째 방문했어요"
+            myVisitNumLabel.font = UIFont.boldSystemFont(ofSize: 12)
+            return myVisitNumLabel
+        }()
+        
+        tierView.addSubview(tierImageView)
+        tierView.addSubview(tierName)
+        tierView.addSubview(myVisitNumLabel)
+        
+        tierImageView.snp.makeConstraints{
+            $0.leading.equalToSuperview().offset(20)
+            $0.centerY.equalTo(tierView.snp.centerY)
+        }
+        tierName.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(10)
+            $0.leading.equalTo(tierImageView.snp.trailing).offset(10)
+        }
+        myVisitNumLabel.snp.makeConstraints{
+            $0.leading.equalTo(tierImageView.snp.trailing).offset(10)
+            $0.top.equalTo(tierName.snp.bottom)
+        }
+        
+        self.view.addSubview(tierView)
+        tierView.snp.makeConstraints{
+            $0.top.equalTo(numList.snp.bottom).offset(10)
+            $0.leading.equalTo(self.view.safeAreaLayoutGuide)
+            $0.width.equalTo(UIScreen.main.bounds.width * 7.5 / 10)
+            $0.height.equalTo(50)
+        }
+        
+        
+        // MARK: 찜하기
+        
+        let heartView: UIView = {
+            let heartView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            heartView.backgroundColor = .white
+            return heartView
+        }()
+        
+        let heartButton: UIButton = {
+            let heartButton = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            let heartImage = UIImage(systemName: "suit.heart.fill")
+            //heartImage = self.resizeImage(image: heartImage!, targetSize: CGSize(width: 30, height: 30))!
+            heartButton.setImage(heartImage, for: .normal)
+            heartButton.addTarget(self, action: #selector(heartButtonDidTap(_:)), for: .touchUpInside)
+            heartButton.tintColor = .lightGray
+            return heartButton
+        }()
+        
+        let heartLabel: UILabel = {
+            let heartLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            heartLabel.text = "찜하기"
+            heartLabel.font = UIFont.boldSystemFont(ofSize: 16)
+            return heartLabel
+        }()
+        
+        heartView.addSubview(heartButton)
+        heartView.addSubview(heartLabel)
+        
+        heartButton.snp.makeConstraints{
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(10)
+        }
+        heartLabel.snp.makeConstraints{
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(heartButton.snp.trailing).offset(5)
+        }
+        
+        self.view.addSubview(heartView)
+        heartView.snp.makeConstraints{
+            $0.top.equalTo(numList.snp.bottom).offset(10)
+            $0.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.width.equalTo(UIScreen.main.bounds.width * 2.5 / 10)
+            $0.height.equalTo(50)
+        }
     }
+    
+    @objc private func heartButtonDidTap(_ sender: UIButton){
+        print("heart button tap")
+        if(sender.tintColor == .lightGray) { sender.tintColor = .red }
+        else { sender.tintColor = .lightGray }
+    }
+}
+
+// MARK: image resize function
+
+extension StoreDetailViewController{
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRect(origin: .zero, size: newSize)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
 }
 
 // MARK: UIColor Extension - register RGB init

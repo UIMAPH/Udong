@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4703685627D62BB200395333 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4703685527D62BB200395333 /* TabBarViewController.swift */; };
+		4733864427D8E3460018A701 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4733864327D8E3460018A701 /* RecommendCollectionViewCell.swift */; };
+		4733864627D8E3C10018A701 /* StoreImageListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4733864527D8E3C10018A701 /* StoreImageListCollectionViewCell.swift */; };
+		4733864C27D904AA0018A701 /* rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4733864B27D904AA0018A701 /* rectangle.png */; };
+		4733864E27D909940018A701 /* StoreImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4733864D27D909940018A701 /* StoreImageDetailViewController.swift */; };
 		47475AD827D34EC900A5C24D /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47475AD727D34EC900A5C24D /* StoreDetailViewController.swift */; };
 		4753CB3C27D89D4500E860B4 /* new-moon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4753CB3B27D89D4500E860B4 /* new-moon.png */; };
 		5A688CB4499EAB6C741ACE65 /* libPods-Udong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA434DF8647ECF1B067F429D /* libPods-Udong.a */; };
@@ -31,6 +35,10 @@
 /* Begin PBXFileReference section */
 		1B1E52924820C648D6E33527 /* Pods-Udong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udong.debug.xcconfig"; path = "Target Support Files/Pods-Udong/Pods-Udong.debug.xcconfig"; sourceTree = "<group>"; };
 		4703685527D62BB200395333 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		4733864327D8E3460018A701 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
+		4733864527D8E3C10018A701 /* StoreImageListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreImageListCollectionViewCell.swift; sourceTree = "<group>"; };
+		4733864B27D904AA0018A701 /* rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle.png; sourceTree = "<group>"; };
+		4733864D27D909940018A701 /* StoreImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreImageDetailViewController.swift; sourceTree = "<group>"; };
 		47475AD727D34EC900A5C24D /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		4753CB3B27D89D4500E860B4 /* new-moon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new-moon.png"; sourceTree = "<group>"; };
 		936AD1EFEEA77D71C6B51513 /* Pods-Udong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udong.release.xcconfig"; path = "Target Support Files/Pods-Udong/Pods-Udong.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,8 +86,12 @@
 		47475AD227D34E0400A5C24D /* bsy */ = {
 			isa = PBXGroup;
 			children = (
+				4733864B27D904AA0018A701 /* rectangle.png */,
 				4753CB3B27D89D4500E860B4 /* new-moon.png */,
 				47475AD727D34EC900A5C24D /* StoreDetailViewController.swift */,
+				4733864527D8E3C10018A701 /* StoreImageListCollectionViewCell.swift */,
+				4733864D27D909940018A701 /* StoreImageDetailViewController.swift */,
+				4733864327D8E3460018A701 /* RecommendCollectionViewCell.swift */,
 				4703685527D62BB200395333 /* TabBarViewController.swift */,
 			);
 			path = bsy;
@@ -277,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D466007627CE3403003CA35D /* LaunchScreen.storyboard in Resources */,
+				4733864C27D904AA0018A701 /* rectangle.png in Resources */,
 				D466007327CE3403003CA35D /* Assets.xcassets in Resources */,
 				4753CB3C27D89D4500E860B4 /* new-moon.png in Resources */,
 			);
@@ -319,8 +332,11 @@
 				D466006C27CE3402003CA35D /* SceneDelegate.swift in Sources */,
 				47475AD827D34EC900A5C24D /* StoreDetailViewController.swift in Sources */,
 				4703685627D62BB200395333 /* TabBarViewController.swift in Sources */,
+				4733864627D8E3C10018A701 /* StoreImageListCollectionViewCell.swift in Sources */,
 				D41075C827D136EC00B0E0E0 /* ModelSample.swift in Sources */,
 				D422A65727D0F25D00F72755 /* AccountsApi.swift in Sources */,
+				4733864427D8E3460018A701 /* RecommendCollectionViewCell.swift in Sources */,
+				4733864E27D909940018A701 /* StoreImageDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

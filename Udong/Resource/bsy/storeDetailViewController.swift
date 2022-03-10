@@ -11,12 +11,25 @@ import SnapKit
 
 class StoreDetailViewController: UIViewController{
     
+    var numList = UIView()
+    var tierView = UIView()
+    var heartView = UIView()
+    
+    lazy var collectionView: UICollectionView = {
+        let f1 = UICollectionViewFlowLayout()
+        f1.scrollDirection = .vertical
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: f1)
+        return cv
+    }()
+    
+    let collectionViewCellStringList = ["StoreImageListCollectionViewCell"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        self.view.backgroundColor = .white
         self.navigationBarSetting()
         self.displaySetting()
-        print(UIScreen.main.bounds.width)
+        self.collectionViewSetting()
     }
 }
 
@@ -76,7 +89,9 @@ extension StoreDetailViewController{
     
     @objc private func reviewWriteBtnDidTap(_ sender: Any){
         print("review write button tap")
+        self.navigationController?.pushViewController(StoreImageDetailViewController(), animated: true)  // 리뷰 작성 페이지로 수정
     }
+    
 }
 
 // MARK: display setting
@@ -87,7 +102,7 @@ extension StoreDetailViewController{
         
         // MARK: 방문수, 리뷰수, 단골수
         
-        let numList: UIView = {
+        numList = {
             let numList = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 400))
             numList.backgroundColor = .white
             return numList
@@ -103,7 +118,7 @@ extension StoreDetailViewController{
         regularNumLabel.text = "단골수 "
         
         var numArr = ["0", "0", "0"] // 백에서 방문수, 리뷰수, 단골수 받아와 저장 (String으로)
-        var labelArr = [visitNumLabel, reviewNumLabel, regularNumLabel]
+        let labelArr = [visitNumLabel, reviewNumLabel, regularNumLabel]
         
         for i in 0..<3{
             numArr[i] = "0"
@@ -134,20 +149,29 @@ extension StoreDetailViewController{
         
         // MARK: 사용자의 단골 등급
         
-        let tierView: UIView = {
+        tierView = {
             let tierView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
             tierView.backgroundColor = .white
             return tierView
         }()
         
-        let tierImage = UIImage(named: "new-moon.png") // 티어 이미지 설정
-        guard var tierImage = tierImage else{
-            print("tier image is nil")
-            return
-        }
-        tierImage = self.resizeImage(image: tierImage, targetSize: CGSize(width: 30, height: 30))!
-        let tierImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        tierImageView.image = tierImage
+        let tierImage: UIImage = {
+            let tierImage = UIImage(named: "new-moon.png") // 티어 이미지 설정
+            guard var tierImage = tierImage else{
+                print("tier image is nil")
+                return UIImage()
+            }
+            tierImage = self.resizeImage(image: tierImage, targetSize: CGSize(width: 30, height: 30))!
+            
+            return tierImage
+        }()
+        
+        let tierImageView: UIImageView = {
+            let tierImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            tierImageView.image = tierImage
+            
+            return tierImageView
+        }()
         
         let tierName: UILabel = {
             let tierName = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -177,7 +201,7 @@ extension StoreDetailViewController{
             $0.leading.equalTo(tierImageView.snp.trailing).offset(10)
         }
         myVisitNumLabel.snp.makeConstraints{
-            $0.leading.equalTo(tierImageView.snp.trailing).offset(10)
+            $0.leading.equalTo(tierName)
             $0.top.equalTo(tierName.snp.bottom)
         }
         
@@ -192,7 +216,7 @@ extension StoreDetailViewController{
         
         // MARK: 찜하기
         
-        let heartView: UIView = {
+        heartView = {
             let heartView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
             heartView.backgroundColor = .white
             return heartView
@@ -243,10 +267,53 @@ extension StoreDetailViewController{
     }
 }
 
+
+// MARK: collectionView setting
+
+extension StoreDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    private func collectionViewSetting(){
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(StoreImageListCollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellStringList[0])
+        
+        self.view.addSubview(collectionView)
+        //collectionView.backgroundColor = .red
+        collectionView.snp.makeConstraints{
+            $0.top.equalTo(tierView.snp.bottom).offset(5)
+            $0.leading.equalTo(view.safeAreaLayoutGuide)
+            $0.width.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return collectionViewCellStringList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if(indexPath.row == 0){
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellStringList[indexPath.row], for: indexPath) as! StoreImageListCollectionViewCell
+            cell.myStoreDetailViewController = self
+            return cell
+        }
+        else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellStringList[indexPath.row], for: indexPath) as! StoreImageListCollectionViewCell
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 100)
+    }
+}
+
 // MARK: image resize function
 
 extension StoreDetailViewController{
-    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
+    public func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
         let size = image.size
         
         let widthRatio  = targetSize.width  / size.width

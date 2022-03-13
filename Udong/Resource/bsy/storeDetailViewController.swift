@@ -22,7 +22,7 @@ class StoreDetailViewController: UIViewController{
         return cv
     }()
     
-    let collectionViewCellStringList = ["StoreImageListCollectionViewCell"]
+    let collectionViewCellStringList = ["StoreImageCell", "RecommendItemCell", "Top5Cell", "StoreInfoCell"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,11 +117,10 @@ extension StoreDetailViewController{
         let regularNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         regularNumLabel.text = "단골수 "
         
-        var numArr = ["0", "0", "0"] // 백에서 방문수, 리뷰수, 단골수 받아와 저장 (String으로)
+        let numArr = ["0", "0", "0"] // 백에서 방문수, 리뷰수, 단골수 받아와 저장 (String으로)
         let labelArr = [visitNumLabel, reviewNumLabel, regularNumLabel]
         
         for i in 0..<3{
-            numArr[i] = "0"
             labelArr[i].font = labelArr[i].font.withSize(16)
             labelArr[i].textColor = .systemBlue
             labelArr[i].text! += numArr[i]
@@ -272,15 +271,18 @@ extension StoreDetailViewController{
 
 extension StoreDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    private func collectionViewSetting(){
+    public func collectionViewSetting(){
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(StoreImageListCollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellStringList[0])
+        collectionView.register(StoreImageCell.self, forCellWithReuseIdentifier: collectionViewCellStringList[0])
+        collectionView.register(RecommendItemCell.self, forCellWithReuseIdentifier: collectionViewCellStringList[1])
+        collectionView.register(Top5Cell.self, forCellWithReuseIdentifier: collectionViewCellStringList[2])
+        collectionView.register(StoreInfoCell.self, forCellWithReuseIdentifier: collectionViewCellStringList[3])
         
         self.view.addSubview(collectionView)
-        //collectionView.backgroundColor = .red
+        collectionView.backgroundColor = UIColor(red: 0xA8, green: 0xE2, blue: 0xFF)
         collectionView.snp.makeConstraints{
             $0.top.equalTo(tierView.snp.bottom).offset(5)
             $0.leading.equalTo(view.safeAreaLayoutGuide)
@@ -295,18 +297,41 @@ extension StoreDetailViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if(indexPath.row == 0){
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellStringList[indexPath.row], for: indexPath) as! StoreImageListCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellStringList[indexPath.row], for: indexPath) as! StoreImageCell
             cell.myStoreDetailViewController = self
+            cell.backgroundColor = .white
             return cell
         }
         else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellStringList[indexPath.row], for: indexPath) as! StoreImageListCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellStringList[indexPath.row], for: indexPath)
+            cell.backgroundColor = .white
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 100)
+        if(indexPath.row == 0){
+            return CGSize(width: UIScreen.main.bounds.width, height: 110)
+        }
+        else if(indexPath.row == 1){
+            return CGSize(width: UIScreen.main.bounds.width, height: 125)
+        }
+        else if(indexPath.row == 2){
+            return CGSize(width: UIScreen.main.bounds.width, height: 105)
+        }
+        else{
+            return CGSize(width: UIScreen.main.bounds.width, height: 300)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if(indexPath.row == 1){
+            self.navigationController?.pushViewController(RecommendItemDetailViewController(), animated: true)
+        }
     }
 }
 

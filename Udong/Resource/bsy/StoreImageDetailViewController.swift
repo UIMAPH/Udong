@@ -8,7 +8,13 @@
 import Foundation
 
 class StoreImageDetailViewController: UIViewController{
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.displaySetting()
+    }
+    
+    private func displaySetting(){
+        
     }
 }

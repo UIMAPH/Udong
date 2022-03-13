@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class StoreImageListCollectionViewCell: UICollectionViewCell{
+class StoreImageCell: UICollectionViewCell{
     
     var myStoreDetailViewController: StoreDetailViewController!
 
@@ -27,7 +27,7 @@ class StoreImageListCollectionViewCell: UICollectionViewCell{
     }
 }
 
-extension StoreImageListCollectionViewCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+extension StoreImageCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     private func storeImageCollectionViewSetting(){
         

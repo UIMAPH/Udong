@@ -10,81 +10,44 @@ import UIKit
 
 class StoreImageCell: UICollectionViewCell{
     
-    var myStoreDetailViewController: StoreDetailViewController!
-
-    let storeImages = ["rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png"]  // 가게 이미지 저장 - 최대 10개
+    var storeImageView = UIImageView()
     
-    lazy var storeImageCollectionView: UICollectionView = {
-        let f1 = UICollectionViewFlowLayout()
-        f1.scrollDirection = .horizontal
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: f1)
-        return cv
-    }()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.displaySetting()
+    }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.storeImageCollectionViewSetting()
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.displaySetting()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.displaySetting()
     }
 }
 
-extension StoreImageCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+extension StoreImageCell{
     
-    private func storeImageCollectionViewSetting(){
+    private func displaySetting(){
         
-        storeImageCollectionView.delegate = self
-        storeImageCollectionView.dataSource = self
-        storeImageCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "photoCell")
-        
-        contentView.addSubview(storeImageCollectionView)
-        storeImageCollectionView.snp.makeConstraints{
-            $0.top.equalTo(contentView)
-            $0.leading.equalTo(contentView).offset(15)
-            $0.width.equalTo(contentView)
-            $0.height.equalTo(100)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(storeImages.count > 10) {return 10}
-        else {return storeImages.count}
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath)
-        
-        let storeImageView: UIImageView = {
+        storeImageView = {
             let storeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-            let storeImage = UIImage(named: storeImages[indexPath.row])  // 가게 이미지 저장
-            guard var storeImage = storeImage else{
-                print("store image is nil")
-                return UIImageView()
-            }
-            storeImage = StoreDetailViewController().resizeImage(image: storeImage, targetSize: CGSize(width: 100, height: 100))!
-            storeImageView.image = storeImage
+//            let storeImage = UIImage(named: "rectangle.png")  // 기본이미지 설정
+//            guard var storeImage = storeImage else{
+//                print("store image is nil")
+//                return UIImageView()
+//            }
+//            storeImage = StoreDetailViewController().resizeImage(image: storeImage, targetSize: CGSize(width: 100, height: 100))!
+//            storeImageView.image = storeImage
 
             return storeImageView
         }()
 
-        cell.addSubview(storeImageView)
+        contentView.addSubview(storeImageView)
         storeImageView.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
-        
-        cell.backgroundColor = .lightGray
-        return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(indexPath.row)")
-        self.myStoreDetailViewController.navigationController?.pushViewController(StoreImageDetailViewController(), animated: true)
-    }
-    
 }

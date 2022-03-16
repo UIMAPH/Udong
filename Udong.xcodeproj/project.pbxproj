@@ -8,16 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		4703685627D62BB200395333 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4703685527D62BB200395333 /* TabBarViewController.swift */; };
+		4728DC2F27E250B900C9C640 /* CircleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728DC2E27E250B900C9C640 /* CircleCollectionViewCell.swift */; };
 		4733864627D8E3C10018A701 /* StoreImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4733864527D8E3C10018A701 /* StoreImageCell.swift */; };
 		4733864C27D904AA0018A701 /* rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4733864B27D904AA0018A701 /* rectangle.png */; };
 		4733864E27D909940018A701 /* StoreImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4733864D27D909940018A701 /* StoreImageDetailViewController.swift */; };
 		47475AD827D34EC900A5C24D /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47475AD727D34EC900A5C24D /* StoreDetailViewController.swift */; };
 		4753CB3C27D89D4500E860B4 /* new-moon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4753CB3B27D89D4500E860B4 /* new-moon.png */; };
-		47BF96F927DC809200C9C398 /* RecommendItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BF96F827DC809200C9C398 /* RecommendItemCell.swift */; };
 		47BF96FD27DC8D9C00C9C398 /* crown.png in Resources */ = {isa = PBXBuildFile; fileRef = 47BF96FC27DC8D9C00C9C398 /* crown.png */; };
-		47BF96FF27DC93D800C9C398 /* Top5Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BF96FE27DC93D800C9C398 /* Top5Cell.swift */; };
 		47BF970127DDDC8900C9C398 /* RecommendItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BF970027DDDC8900C9C398 /* RecommendItemDetailViewController.swift */; };
-		47BF970327DDDF8800C9C398 /* StoreInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BF970227DDDF8800C9C398 /* StoreInfoCell.swift */; };
+		47BF970327DDDF8800C9C398 /* StoreInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BF970227DDDF8800C9C398 /* StoreInfoCollectionViewCell.swift */; };
 		5A688CB4499EAB6C741ACE65 /* libPods-Udong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA434DF8647ECF1B067F429D /* libPods-Udong.a */; };
 		D41075C827D136EC00B0E0E0 /* ModelSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41075C727D136EC00B0E0E0 /* ModelSample.swift */; };
 		D422A65727D0F25D00F72755 /* AccountsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422A65627D0F25D00F72755 /* AccountsApi.swift */; };
@@ -39,16 +38,15 @@
 /* Begin PBXFileReference section */
 		1B1E52924820C648D6E33527 /* Pods-Udong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udong.debug.xcconfig"; path = "Target Support Files/Pods-Udong/Pods-Udong.debug.xcconfig"; sourceTree = "<group>"; };
 		4703685527D62BB200395333 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		4728DC2E27E250B900C9C640 /* CircleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCollectionViewCell.swift; sourceTree = "<group>"; };
 		4733864527D8E3C10018A701 /* StoreImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreImageCell.swift; sourceTree = "<group>"; };
 		4733864B27D904AA0018A701 /* rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle.png; sourceTree = "<group>"; };
 		4733864D27D909940018A701 /* StoreImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreImageDetailViewController.swift; sourceTree = "<group>"; };
 		47475AD727D34EC900A5C24D /* StoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		4753CB3B27D89D4500E860B4 /* new-moon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new-moon.png"; sourceTree = "<group>"; };
-		47BF96F827DC809200C9C398 /* RecommendItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendItemCell.swift; sourceTree = "<group>"; };
 		47BF96FC27DC8D9C00C9C398 /* crown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crown.png; sourceTree = "<group>"; };
-		47BF96FE27DC93D800C9C398 /* Top5Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top5Cell.swift; sourceTree = "<group>"; };
 		47BF970027DDDC8900C9C398 /* RecommendItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendItemDetailViewController.swift; sourceTree = "<group>"; };
-		47BF970227DDDF8800C9C398 /* StoreInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoCell.swift; sourceTree = "<group>"; };
+		47BF970227DDDF8800C9C398 /* StoreInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		936AD1EFEEA77D71C6B51513 /* Pods-Udong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udong.release.xcconfig"; path = "Target Support Files/Pods-Udong/Pods-Udong.release.xcconfig"; sourceTree = "<group>"; };
 		AA434DF8647ECF1B067F429D /* libPods-Udong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Udong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41075C727D136EC00B0E0E0 /* ModelSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSample.swift; sourceTree = "<group>"; };
@@ -98,13 +96,12 @@
 				4733864B27D904AA0018A701 /* rectangle.png */,
 				4753CB3B27D89D4500E860B4 /* new-moon.png */,
 				47475AD727D34EC900A5C24D /* StoreDetailViewController.swift */,
-				47BF970227DDDF8800C9C398 /* StoreInfoCell.swift */,
+				4728DC2E27E250B900C9C640 /* CircleCollectionViewCell.swift */,
+				47BF970227DDDF8800C9C398 /* StoreInfoCollectionViewCell.swift */,
 				47BF970027DDDC8900C9C398 /* RecommendItemDetailViewController.swift */,
 				4733864527D8E3C10018A701 /* StoreImageCell.swift */,
 				4733864D27D909940018A701 /* StoreImageDetailViewController.swift */,
 				4703685527D62BB200395333 /* TabBarViewController.swift */,
-				47BF96F827DC809200C9C398 /* RecommendItemCell.swift */,
-				47BF96FE27DC93D800C9C398 /* Top5Cell.swift */,
 			);
 			path = bsy;
 			sourceTree = "<group>";
@@ -342,17 +339,16 @@
 			files = (
 				D422A65927D0F27100F72755 /* APIConstants.swift in Sources */,
 				47BF970127DDDC8900C9C398 /* RecommendItemDetailViewController.swift in Sources */,
-				47BF96FF27DC93D800C9C398 /* Top5Cell.swift in Sources */,
 				D466006A27CE3402003CA35D /* AppDelegate.swift in Sources */,
 				D466006C27CE3402003CA35D /* SceneDelegate.swift in Sources */,
-				47BF96F927DC809200C9C398 /* RecommendItemCell.swift in Sources */,
 				47475AD827D34EC900A5C24D /* StoreDetailViewController.swift in Sources */,
 				4703685627D62BB200395333 /* TabBarViewController.swift in Sources */,
 				4733864627D8E3C10018A701 /* StoreImageCell.swift in Sources */,
 				D41075C827D136EC00B0E0E0 /* ModelSample.swift in Sources */,
 				D422A65727D0F25D00F72755 /* AccountsApi.swift in Sources */,
+				4728DC2F27E250B900C9C640 /* CircleCollectionViewCell.swift in Sources */,
 				4733864E27D909940018A701 /* StoreImageDetailViewController.swift in Sources */,
-				47BF970327DDDF8800C9C398 /* StoreInfoCell.swift in Sources */,
+				47BF970327DDDF8800C9C398 /* StoreInfoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

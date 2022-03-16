@@ -11,11 +11,45 @@ import SnapKit
 
 class StoreDetailViewController: UIViewController{
     
-    var numList = UIView()
+    let storeImages = ["rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png"]  // 가게 이미지 저장 - 최대 10개
+    
+    let recommendItem = "단무지 맛집"  // 추천항목 저장
+    var recommendItemImages: [String] = []  // 추천항목 이미지 저장
+    
+    var top5Images: [String] = []  // // top5 단골 이미지 저장
+    
+    let storeInfoIcons = [UIImage(systemName: "mappin.and.ellipse"), UIImage(systemName: "phone.fill"), UIImage(systemName: "clock")]
+    var storeInfos = ["주소", "전화번호", "영업시간"]  /// 가게 주소, 전화번호, 영업시간 저장
+    let officeHours = ["월요일", "월요일", "월요일", "월요일", "월요일", "월요일", "월요일"]
+    
+    var numListView = UIView()
     var tierView = UIView()
     var heartView = UIView()
     
-    lazy var collectionView: UICollectionView = {
+    lazy var storeImageCollectionView: UICollectionView = {
+        let f1 = UICollectionViewFlowLayout()
+        f1.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: f1)
+        return cv
+    }()
+    
+    var recommendItemView = UIView()
+    lazy var recommendItemCollectionView: UICollectionView = {
+        let f1 = UICollectionViewFlowLayout()
+        f1.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: f1)
+        return cv
+    }()
+    
+    var top5View = UIView()
+    lazy var top5collectionView: UICollectionView = {
+        let f1 = UICollectionViewFlowLayout()
+        f1.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: f1)
+        return cv
+    }()
+    
+    lazy var storeInfoCollectionView: UICollectionView = {
         let f1 = UICollectionViewFlowLayout()
         f1.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: f1)
@@ -28,14 +62,23 @@ class StoreDetailViewController: UIViewController{
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationBarSetting()
-        self.displaySetting()
-        self.collectionViewSetting()
+        
+        // display setting func call
+        self.numListViewSetting()
+        self.tierViewSetting()
+        self.heartViewSetting()
+        
+        self.storeImagecollectionViewSetting()
+        self.recommendItemViewSetting()
+        self.top5ViewSetting()
+        self.storeInfoViewSetting()
     }
 }
 
 // MARK: navigation setting
 
 extension StoreDetailViewController{
+    
     private func navigationBarSetting(){
         let backButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(backBtnDidTap(_:)))
         backButtonItem.tintColor = .black
@@ -98,11 +141,10 @@ extension StoreDetailViewController{
 
 extension StoreDetailViewController{
     
-    private func displaySetting(){
-        
-        // MARK: 방문수, 리뷰수, 단골수
-        
-        numList = {
+    // MARK: 방문수, 리뷰수, 단골수
+    
+    private func numListViewSetting(){
+        numListView = {
             let numList = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 400))
             numList.backgroundColor = .white
             return numList
@@ -125,11 +167,11 @@ extension StoreDetailViewController{
             labelArr[i].textColor = .systemBlue
             labelArr[i].text! += numArr[i]
             
-            numList.addSubview(labelArr[i])
+            numListView.addSubview(labelArr[i])
         }
         
         reviewNumLabel.snp.makeConstraints{
-            $0.centerX.equalTo(numList.snp.centerX)
+            $0.centerX.equalTo(numListView.snp.centerX)
         }
         visitNumLabel.snp.makeConstraints{
             $0.trailing.equalTo(reviewNumLabel.snp.leading).offset(-10)
@@ -138,16 +180,17 @@ extension StoreDetailViewController{
             $0.leading.equalTo(reviewNumLabel.snp.trailing).offset(10)
         }
         
-        self.view.addSubview(numList)
-        numList.snp.makeConstraints{
+        self.view.addSubview(numListView)
+        numListView.snp.makeConstraints{
             $0.top.equalTo(self.view.safeAreaLayoutGuide)
             $0.width.equalTo(self.view.safeAreaLayoutGuide)
             $0.height.equalTo(20)
         }
-        
-        
-        // MARK: 사용자의 단골 등급
-        
+    }
+    
+    // MARK: 사용자의 단골 등급
+    
+    private func tierViewSetting(){
         tierView = {
             let tierView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
             tierView.backgroundColor = .white
@@ -206,15 +249,17 @@ extension StoreDetailViewController{
         
         self.view.addSubview(tierView)
         tierView.snp.makeConstraints{
-            $0.top.equalTo(numList.snp.bottom).offset(10)
+            $0.top.equalTo(numListView.snp.bottom).offset(10)
             $0.leading.equalTo(self.view.safeAreaLayoutGuide)
             $0.width.equalTo(UIScreen.main.bounds.width * 7.5 / 10)
             $0.height.equalTo(50)
         }
         
-        
-        // MARK: 찜하기
-        
+    }
+    
+    // MARK: 찜하기
+    
+    private func heartViewSetting(){
         heartView = {
             let heartView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
             heartView.backgroundColor = .white
@@ -252,7 +297,7 @@ extension StoreDetailViewController{
         
         self.view.addSubview(heartView)
         heartView.snp.makeConstraints{
-            $0.top.equalTo(numList.snp.bottom).offset(10)
+            $0.top.equalTo(numListView.snp.bottom).offset(10)
             $0.trailing.equalTo(self.view.safeAreaLayoutGuide)
             $0.width.equalTo(UIScreen.main.bounds.width * 2.5 / 10)
             $0.height.equalTo(50)
@@ -264,6 +309,237 @@ extension StoreDetailViewController{
         if(sender.tintColor == .lightGray) { sender.tintColor = .red }
         else { sender.tintColor = .lightGray }
     }
+    
+    // MARK: storeImageCollectionView setting
+    
+    private func storeImagecollectionViewSetting(){
+        
+        storeImageCollectionView.delegate = self
+        storeImageCollectionView.dataSource = self
+        
+        storeImageCollectionView.register(StoreImageCell.self, forCellWithReuseIdentifier: "storeImageCell")
+        
+        self.view.addSubview(storeImageCollectionView)
+        //collectionView.backgroundColor = UIColor(red: 0xA8, green: 0xE2, blue: 0xFF)
+        storeImageCollectionView.snp.makeConstraints{
+            $0.top.equalTo(tierView.snp.bottom)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide)
+            //$0.width.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(120)
+        }
+    }
+
+// MARK: recommendItemView setting
+    
+    private func recommendItemViewSetting(){
+        recommendItemImages = ["new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png"]  // 추천키워드 이미지 저장
+
+        recommendItemView = {
+            let recommendItemView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
+            recommendItemView.backgroundColor = .white
+            return recommendItemView
+        }()
+        
+        self.view.addSubview(recommendItemView)
+        recommendItemView.snp.makeConstraints{
+            $0.top.equalTo(storeImageCollectionView.snp.bottom).offset(5)
+            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.height.equalTo(125)
+        }
+        
+        if(recommendItemImages.count != 0){
+
+            let recommendItemImageView: UIImageView = {
+                let recommendItemImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                
+                let recommendItemImage = UIImage(named: recommendItemImages[0])
+                guard var recommendItemImage = recommendItemImage else{
+                    print("recommendItem image is nil")
+                    return UIImageView()
+                }
+                recommendItemImage = self.resizeImage(image: recommendItemImage, targetSize: CGSize(width: 50, height: 50))!
+                
+                recommendItemImageView.image = recommendItemImage
+                return recommendItemImageView
+            }()
+            
+            let recommendLabel1: UILabel = {
+                let recommendLabel1 = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                recommendLabel1.text = "로컬들이 선택한"
+                recommendLabel1.font = UIFont.boldSystemFont(ofSize: 14)
+                return recommendLabel1
+            }()
+            
+            let recommendLabel2: UILabel = {
+                let recommendLabel2 = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                recommendLabel2.text = "\"" + recommendItem + "\""
+                recommendLabel2.font = UIFont.boldSystemFont(ofSize: 14)
+                return recommendLabel2
+            }()
+            
+            recommendItemView.addSubview(recommendItemImageView)
+            recommendItemView.addSubview(recommendLabel1)
+            recommendItemView.addSubview(recommendLabel2)
+        
+            recommendItemImageView.snp.makeConstraints{
+                $0.top.equalToSuperview().offset(10)
+                $0.leading.equalToSuperview().offset(20)
+            }
+            recommendLabel1.snp.makeConstraints{
+                $0.top.equalToSuperview().offset(15)
+                $0.leading.equalTo(recommendItemImageView.snp.trailing).offset(15)
+            }
+            recommendLabel2.snp.makeConstraints{
+                $0.top.equalTo(recommendLabel1.snp.bottom)
+                $0.leading.equalTo(recommendItemImageView.snp.trailing).offset(15)
+            }
+            
+            /// recommendItemcollectionView setting
+            
+            recommendItemView.addSubview(recommendItemCollectionView)
+            recommendItemCollectionView.delegate = self
+            recommendItemCollectionView.dataSource = self
+            recommendItemCollectionView.register(CircleCollectionViewCell.self, forCellWithReuseIdentifier: "circleCollectionViewCell")
+            
+            recommendItemCollectionView.snp.makeConstraints{
+                $0.top.equalTo(recommendItemImageView.snp.bottom).offset(5)
+                $0.leading.equalToSuperview().offset(20)
+                $0.width.equalToSuperview()
+                $0.height.equalTo(50)
+            }
+            
+            
+            // TODO: recommendItemView 클릭 시 액션 정의 - uiview에 터치 이벤트 추가
+            
+            
+        }
+        else{  // setting when there is no recommend item
+            let label1: UILabel = {
+                let label1 = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                label1.text = "아직 추천항목이 없어요!"
+                label1.font = UIFont.boldSystemFont(ofSize: 20)
+                return label1
+            }()
+            
+            let label2: UILabel = {
+                let label2 = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                label2.text = "우리 동네 가게라면 방문하고 리뷰를 작성해보세요!"
+                label2.font = UIFont.boldSystemFont(ofSize: 16)
+                return label2
+            }()
+            
+            recommendItemView.addSubview(label1)
+            recommendItemView.addSubview(label2)
+            
+            label1.snp.makeConstraints{
+                $0.top.equalToSuperview().offset(15)
+                $0.leading.equalToSuperview().offset(15)
+            }
+            label2.snp.makeConstraints{
+                $0.top.equalTo(label1.snp.bottom).offset(5)
+                $0.leading.equalTo(label1)
+            }
+        }
+    }
+    
+    private func top5ViewSetting(){
+        
+        top5Images = ["new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png"]  // 단골 이미지 저장
+        
+        top5View = {
+            let top5View = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
+            top5View.backgroundColor = .white
+            return top5View
+        }()
+        
+        self.view.addSubview(top5View)
+        top5View.snp.makeConstraints{
+            $0.top.equalTo(recommendItemView.snp.bottom)
+            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.height.equalTo(100)
+        }
+
+        if(top5Images.count != 0){
+            
+            let titleLabel : UILabel = {
+                let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                titleLabel.text = "이 가게 TOP5 단골"
+                titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+                return titleLabel
+            }()
+            
+            top5View.addSubview(titleLabel)
+            titleLabel.snp.makeConstraints{
+                $0.top.equalToSuperview().offset(15)
+                $0.leading.equalToSuperview().offset(20)
+            }
+            
+            // top5collectionView setting
+            
+            top5View.addSubview(top5collectionView)
+            top5collectionView.delegate = self
+            top5collectionView.dataSource = self
+            top5collectionView.register(CircleCollectionViewCell.self, forCellWithReuseIdentifier: "circleCollectionViewCell")
+            
+            top5collectionView.snp.makeConstraints{
+                $0.top.equalTo(titleLabel.snp.bottom).offset(5)
+                $0.leading.equalTo(titleLabel)
+                $0.width.equalToSuperview()
+                $0.height.equalTo(50)
+            }
+            
+            // TODO: top5View 클릭 시 액션 정의 - uiview에 터치 이벤트 추가
+        }
+        else{  // setting when there is no regular
+            
+            let label1: UILabel = {
+                let label1 = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                label1.text = "아직 단골손님이 없어요!"
+                label1.font = UIFont.boldSystemFont(ofSize: 20)
+                return label1
+            }()
+            
+            let label2: UILabel = {
+                let label2 = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                label2.text = "우리 동네 가게라면 방문하고 리뷰를 작성해보세요!"
+                label2.font = UIFont.boldSystemFont(ofSize: 16)
+                return label2
+            }()
+            
+            top5View.addSubview(label1)
+            top5View.addSubview(label2)
+            
+            label1.snp.makeConstraints{
+                $0.top.equalToSuperview().offset(15)
+                $0.leading.equalToSuperview().offset(15)
+            }
+            label2.snp.makeConstraints{
+                $0.top.equalTo(label1.snp.bottom).offset(5)
+                $0.leading.equalTo(label1)
+            }
+        }
+    }
+    
+    // MARK: storeInfoView setting
+    
+    private func storeInfoViewSetting(){
+        
+        var detailBtnState: Bool = false
+        
+        self.view.addSubview(storeInfoCollectionView)
+        storeInfoCollectionView.delegate = self
+        storeInfoCollectionView.dataSource = self
+        storeInfoCollectionView.register(StoreInfoCollectionViewCell.self, forCellWithReuseIdentifier: "storeInfoCollectionViewCell")
+        
+        storeInfoCollectionView.snp.makeConstraints{
+            $0.top.equalTo(top5View.snp.bottom).offset(5)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).offset(5)
+            $0.height.equalTo(200)
+        }
+        
+    }
+    
 }
 
 
@@ -271,69 +547,120 @@ extension StoreDetailViewController{
 
 extension StoreDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    public func collectionViewSetting(){
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        collectionView.register(StoreImageCell.self, forCellWithReuseIdentifier: collectionViewCellStringList[0])
-        collectionView.register(RecommendItemCell.self, forCellWithReuseIdentifier: collectionViewCellStringList[1])
-        collectionView.register(Top5Cell.self, forCellWithReuseIdentifier: collectionViewCellStringList[2])
-        collectionView.register(StoreInfoCell.self, forCellWithReuseIdentifier: collectionViewCellStringList[3])
-        
-        self.view.addSubview(collectionView)
-        collectionView.backgroundColor = UIColor(red: 0xA8, green: 0xE2, blue: 0xFF)
-        collectionView.snp.makeConstraints{
-            $0.top.equalTo(tierView.snp.bottom).offset(5)
-            $0.leading.equalTo(view.safeAreaLayoutGuide)
-            $0.width.equalTo(view.safeAreaLayoutGuide)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide)
-        }
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionViewCellStringList.count
+        if collectionView == self.storeImageCollectionView {
+            if(storeImages.count > 10) {return 10}
+            else {return storeImages.count}
+        }
+        if collectionView == self.recommendItemCollectionView {
+            return recommendItemImages.count - 1
+        }
+        if collectionView == self.top5collectionView {
+            return top5Images.count
+        }
+        if collectionView == self.storeInfoCollectionView {
+            return 3
+        }
+        
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if(indexPath.row == 0){
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellStringList[indexPath.row], for: indexPath) as! StoreImageCell
-            cell.myStoreDetailViewController = self
-            cell.backgroundColor = .white
+        
+        if collectionView == self.storeImageCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storeImageCell", for: indexPath) as! StoreImageCell
+            
+            let storeImage = UIImage(named: storeImages[indexPath.row])
+            guard var storeImage = storeImage else{
+                print("store image is nil")
+                return cell
+            }
+            storeImage = self.resizeImage(image: storeImage, targetSize: CGSize(width: 100, height: 100))!
+            cell.storeImageView.image = storeImage
+            cell.backgroundColor = .lightGray
+            
             return cell
         }
-        else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellStringList[indexPath.row], for: indexPath)
-            cell.backgroundColor = .white
+        
+        if collectionView == self.recommendItemCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "circleCollectionViewCell", for: indexPath) as! CircleCollectionViewCell
+            
+            let recommendItemImage = UIImage(named: recommendItemImages[indexPath.row + 1])
+            guard var recommendItemImage = recommendItemImage else{
+                print("recommendItem image is nil")
+                return cell
+            }
+            recommendItemImage = self.resizeImage(image: recommendItemImage, targetSize: CGSize(width: 40, height: 40))!
+            cell.imageView.image = recommendItemImage
+            
             return cell
         }
+        
+        if collectionView == self.top5collectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "circleCollectionViewCell", for: indexPath) as! CircleCollectionViewCell
+            
+            let top5Image = UIImage(named: top5Images[indexPath.row]) // 추천키워드 이미지 설정
+            guard var top5Image = top5Image else{
+                print("top5Image is nil")
+                return cell
+            }
+            top5Image = self.resizeImage(image: top5Image, targetSize: CGSize(width: 40, height: 40))!
+            cell.imageView.image = top5Image
+            
+            return cell
+        }
+        
+        if collectionView == self.storeInfoCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storeInfoCollectionViewCell", for: indexPath) as! StoreInfoCollectionViewCell
+            
+            if(indexPath.row == 2){
+                cell.detailBtnSetting()
+            }
+            
+            cell.iconImageView.image = storeInfoIcons[indexPath.row]
+            cell.label.text = storeInfos[indexPath.row]
+            
+            return cell
+        }
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storeImageCell", for: indexPath) as! StoreImageCell
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if(indexPath.row == 0){
-            return CGSize(width: UIScreen.main.bounds.width, height: 110)
+        if collectionView == self.storeImageCollectionView {
+            return CGSize(width: 100, height: 100)
         }
-        else if(indexPath.row == 1){
-            return CGSize(width: UIScreen.main.bounds.width, height: 125)
+        if collectionView == self.recommendItemCollectionView || collectionView == self.top5collectionView {
+            return CGSize(width: 40, height: 40)
         }
-        else if(indexPath.row == 2){
-            return CGSize(width: UIScreen.main.bounds.width, height: 105)
+        if collectionView == self.storeInfoCollectionView {
+            return CGSize(width: UIScreen.main.bounds.width, height: 20)
         }
-        else{
-            return CGSize(width: UIScreen.main.bounds.width, height: 300)
-        }
+        
+        return CGSize(width: 100, height: 100)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        if collectionView == self.storeImageCollectionView {
+            return 3
+        }
+        if collectionView == self.recommendItemCollectionView || collectionView == self.top5collectionView || collectionView == self.storeInfoCollectionView {
+            return 15
+        }
+        
         return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if(indexPath.row == 1){
-            self.navigationController?.pushViewController(RecommendItemDetailViewController(), animated: true)
+        if collectionView == self.storeImageCollectionView {
+            print("\(indexPath.row)")
+            self.navigationController?.pushViewController(StoreImageDetailViewController(), animated: true)
         }
     }
 }
+
 
 // MARK: image resize function
 

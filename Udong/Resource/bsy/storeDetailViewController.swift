@@ -9,6 +9,8 @@ import SwiftUI
 import UIKit
 import SnapKit
 
+let SPACING_FOR_VIEW = 2
+
 class StoreDetailViewController: UIViewController{
     
     let storeImages = ["rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png"]  // 가게 이미지 저장 - 최대 10개
@@ -22,10 +24,25 @@ class StoreDetailViewController: UIViewController{
     var storeInfos = ["주소", "전화번호", "영업시간"]  /// 가게 주소, 전화번호, 영업시간 저장
     let officeHours = ["월요일", "월요일", "월요일", "월요일", "월요일", "월요일", "월요일"]
     
+    let menus = ["김치 치즈 가쯔동", "김치 치즈 가쯔동", "김치 치즈 가쯔동", "김치 치즈 가쯔동"]
+    let prices = ["7,500원", "7,500원", "7,500원", "7,500원"]
+    
+    let reviews = ["내용입니다1", "작성자1", "22.03.21", "1", "내용입니다2", "작성자2", "22.03.22", "2"]
+    
+    var recommendStoreImages = ["new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png"]  // 추천 가게 이미지 저장
+    
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = UIColor(red: 0xA8, green: 0xE2, blue: 0xFF)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     var numListView = UIView()
     var tierView = UIView()
     var heartView = UIView()
     
+    var storeImageView = UIView()
     lazy var storeImageCollectionView: UICollectionView = {
         let f1 = UICollectionViewFlowLayout()
         f1.scrollDirection = .horizontal
@@ -49,19 +66,53 @@ class StoreDetailViewController: UIViewController{
         return cv
     }()
     
+    var storeInfoView = UIView()
     lazy var storeInfoCollectionView: UICollectionView = {
         let f1 = UICollectionViewFlowLayout()
         f1.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: f1)
         return cv
     }()
+    var officeHourBtnState: Bool = false
     
-    let collectionViewCellStringList = ["StoreImageCell", "RecommendItemCell", "Top5Cell", "StoreInfoCell"]
+//    lazy var officeHourCollectionView: UICollectionView = {
+//        let f1 = UICollectionViewFlowLayout()
+//        f1.scrollDirection = .vertical
+//        let cv = UICollectionView(frame: .zero, collectionViewLayout: f1)
+//        return cv
+//    }()
+  
+    var menuView = UIView()
+    lazy var menuCollectionView: UICollectionView = {
+        let f1 = UICollectionViewFlowLayout()
+        f1.scrollDirection = .vertical
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: f1)
+        return cv
+    }()
+    
+    var reviewView = UIView()
+    lazy var reviewCollectionView: UICollectionView = {
+        let f1 = UICollectionViewFlowLayout()
+        f1.scrollDirection = .vertical
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: f1)
+        return cv
+    }()
+    
+    var locationView = UIView()
+    
+    var recommendStoreView = UIView()
+    lazy var recommendStoreCollectionView: UICollectionView = {
+        let f1 = UICollectionViewFlowLayout()
+        f1.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: f1)
+        return cv
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationBarSetting()
+        self.scrollViewSetting()
         
         // display setting func call
         self.numListViewSetting()
@@ -72,6 +123,12 @@ class StoreDetailViewController: UIViewController{
         self.recommendItemViewSetting()
         self.top5ViewSetting()
         self.storeInfoViewSetting()
+        
+        self.menuViewSetting()
+        self.reviewViewSetting()
+        
+        self.locationViewSetting()
+        self.recommendStoreViewSetting()
     }
 }
 
@@ -134,7 +191,17 @@ extension StoreDetailViewController{
         print("review write button tap")
         self.navigationController?.pushViewController(StoreImageDetailViewController(), animated: true)  // 리뷰 작성 페이지로 수정
     }
-    
+}
+
+// MARK: scrollView setting
+
+extension StoreDetailViewController {
+    private func scrollViewSetting(){
+        self.view.addSubview(scrollView)
+        scrollView.snp.makeConstraints{
+            $0.edges.equalTo(self.view.safeAreaLayoutGuide)
+        }
+    }
 }
 
 // MARK: display setting
@@ -145,7 +212,7 @@ extension StoreDetailViewController{
     
     private func numListViewSetting(){
         numListView = {
-            let numList = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 400))
+            let numList = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
             numList.backgroundColor = .white
             return numList
         }()
@@ -180,10 +247,10 @@ extension StoreDetailViewController{
             $0.leading.equalTo(reviewNumLabel.snp.trailing).offset(10)
         }
         
-        self.view.addSubview(numListView)
+        scrollView.addSubview(numListView)
         numListView.snp.makeConstraints{
-            $0.top.equalTo(self.view.safeAreaLayoutGuide)
-            $0.width.equalTo(self.view.safeAreaLayoutGuide)
+            $0.top.equalTo(scrollView)
+            $0.width.equalTo(scrollView.safeAreaLayoutGuide)
             $0.height.equalTo(20)
         }
     }
@@ -247,10 +314,10 @@ extension StoreDetailViewController{
             $0.top.equalTo(tierName.snp.bottom)
         }
         
-        self.view.addSubview(tierView)
+        scrollView.addSubview(tierView)
         tierView.snp.makeConstraints{
-            $0.top.equalTo(numListView.snp.bottom).offset(10)
-            $0.leading.equalTo(self.view.safeAreaLayoutGuide)
+            $0.top.equalTo(numListView.snp.bottom)
+            $0.leading.equalTo(scrollView.safeAreaLayoutGuide)
             $0.width.equalTo(UIScreen.main.bounds.width * 7.5 / 10)
             $0.height.equalTo(50)
         }
@@ -295,10 +362,10 @@ extension StoreDetailViewController{
             $0.leading.equalTo(heartButton.snp.trailing).offset(5)
         }
         
-        self.view.addSubview(heartView)
+        scrollView.addSubview(heartView)
         heartView.snp.makeConstraints{
-            $0.top.equalTo(numListView.snp.bottom).offset(10)
-            $0.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.top.equalTo(tierView)
+            $0.trailing.equalTo(scrollView.safeAreaLayoutGuide)
             $0.width.equalTo(UIScreen.main.bounds.width * 2.5 / 10)
             $0.height.equalTo(50)
         }
@@ -310,22 +377,33 @@ extension StoreDetailViewController{
         else { sender.tintColor = .lightGray }
     }
     
-    // MARK: storeImageCollectionView setting
+    // MARK: storeImageView setting
     
     private func storeImagecollectionViewSetting(){
+        
+        storeImageView = {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            view.backgroundColor = .white
+            return view
+        }()
+        
+        scrollView.addSubview(storeImageView)
+        storeImageView.snp.makeConstraints{
+            $0.top.equalTo(tierView.snp.bottom)
+            $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
+            $0.height.equalTo(120)
+        }
         
         storeImageCollectionView.delegate = self
         storeImageCollectionView.dataSource = self
         
         storeImageCollectionView.register(StoreImageCell.self, forCellWithReuseIdentifier: "storeImageCell")
         
-        self.view.addSubview(storeImageCollectionView)
-        //collectionView.backgroundColor = UIColor(red: 0xA8, green: 0xE2, blue: 0xFF)
+        storeImageView.addSubview(storeImageCollectionView)
         storeImageCollectionView.snp.makeConstraints{
-            $0.top.equalTo(tierView.snp.bottom)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide)
-            //$0.width.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().offset(15)
+            $0.trailing.equalToSuperview()
             $0.height.equalTo(120)
         }
     }
@@ -341,11 +419,16 @@ extension StoreDetailViewController{
             return recommendItemView
         }()
         
-        self.view.addSubview(recommendItemView)
+        scrollView.addSubview(recommendItemView)
         recommendItemView.snp.makeConstraints{
-            $0.top.equalTo(storeImageCollectionView.snp.bottom).offset(5)
-            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            $0.height.equalTo(125)
+            $0.top.equalTo(storeImageCollectionView.snp.bottom).offset(SPACING_FOR_VIEW)
+            $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
+            if recommendItemImages.count != 0 {
+                $0.height.equalTo(125)
+            }
+            else {
+                $0.height.equalTo(90)
+            }
         }
         
         if(recommendItemImages.count != 0){
@@ -395,7 +478,7 @@ extension StoreDetailViewController{
                 $0.leading.equalTo(recommendItemImageView.snp.trailing).offset(15)
             }
             
-            /// recommendItemcollectionView setting
+            // recommendItemcollectionView setting
             
             recommendItemView.addSubview(recommendItemCollectionView)
             recommendItemCollectionView.delegate = self
@@ -410,9 +493,10 @@ extension StoreDetailViewController{
             }
             
             
-            // TODO: recommendItemView 클릭 시 액션 정의 - uiview에 터치 이벤트 추가
-            
-            
+            // recommendItemView에 터치 이벤트 추가
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(recommendItemViewDidTap(_:)))
+            recommendItemView.addGestureRecognizer(tapGesture)
+
         }
         else{  // setting when there is no recommend item
             let label1: UILabel = {
@@ -443,8 +527,15 @@ extension StoreDetailViewController{
         }
     }
     
+    // recommendItemView tap gesture 정의
+    @objc func recommendItemViewDidTap(_ sender: Any){
+        print("recommendItemView tap")
+        self.navigationController?.pushViewController(RecommendItemDetailViewController(), animated: true)
+    }
+    
+    // MARK: top5View setting
+    
     private func top5ViewSetting(){
-        
         top5Images = ["new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png"]  // 단골 이미지 저장
         
         top5View = {
@@ -453,12 +544,18 @@ extension StoreDetailViewController{
             return top5View
         }()
         
-        self.view.addSubview(top5View)
+        scrollView.addSubview(top5View)
         top5View.snp.makeConstraints{
-            $0.top.equalTo(recommendItemView.snp.bottom)
-            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            $0.height.equalTo(100)
+            $0.top.equalTo(recommendItemView.snp.bottom).offset(SPACING_FOR_VIEW)
+            $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
+            if top5Images.count != 0 {
+                $0.height.equalTo(100)
+            }
+            else {
+                $0.height.equalTo(90)
+            }
         }
+        top5View.translatesAutoresizingMaskIntoConstraints = false
 
         if(top5Images.count != 0){
             
@@ -489,7 +586,11 @@ extension StoreDetailViewController{
                 $0.height.equalTo(50)
             }
             
-            // TODO: top5View 클릭 시 액션 정의 - uiview에 터치 이벤트 추가
+
+            // top5View에 터치 이벤트 추가
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(top5ViewDidTap(_:)))
+            top5View.addGestureRecognizer(tapGesture)
+            
         }
         else{  // setting when there is no regular
             
@@ -521,25 +622,273 @@ extension StoreDetailViewController{
         }
     }
     
+    // top5View tap gesture 정의
+    @objc func top5ViewDidTap(_ sender: Any){
+        print("top5View tap")
+        self.navigationController?.pushViewController(Top5DetailViewController(), animated: true)
+    }
+    
+    
     // MARK: storeInfoView setting
     
     private func storeInfoViewSetting(){
+        storeInfoView = {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
+            view.backgroundColor = .white
+            return view
+        }()
         
-        var detailBtnState: Bool = false
+        scrollView.addSubview(storeInfoView)
+        storeInfoView.snp.makeConstraints{
+            $0.top.equalTo(top5View.snp.bottom).offset(SPACING_FOR_VIEW)
+            $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
+            $0.height.equalTo(115)
+        }
         
-        self.view.addSubview(storeInfoCollectionView)
+        storeInfoView.addSubview(storeInfoCollectionView)
         storeInfoCollectionView.delegate = self
         storeInfoCollectionView.dataSource = self
         storeInfoCollectionView.register(StoreInfoCollectionViewCell.self, forCellWithReuseIdentifier: "storeInfoCollectionViewCell")
+        //storeInfoCollectionView.backgroundColor = .red
         
         storeInfoCollectionView.snp.makeConstraints{
-            $0.top.equalTo(top5View.snp.bottom).offset(5)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).offset(5)
+            $0.top.equalToSuperview().offset(10)
+            $0.bottom.equalToSuperview().offset(-10)
+            $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
+            $0.height.equalTo(90)
+        }
+    }
+    
+    // TODO: 영업시간 더보기 버튼 클랙 액션 추가
+    
+    func officeHourCollectionViewSetting(){
+//        if officeHourBtnState == true {  // true이면 officeHourCollectionView 제거
+//            officeHourBtnState = false
+//            storeInfoCollectionView.reloadData()
+//            //officeHourCollectionView.removeFromSuperview()
+//
+//        } else {  // 아니면 officeHourCollectionView 추가
+//            print("false")
+//            storeInfos += ["월요일"]
+//            officeHourBtnState = true
+//            storeInfoCollectionView.reloadData()
+//            print("finish")
+//        }
+    }
+    
+    
+    // MARK: storeMenuView setting
+    
+    private func menuViewSetting(){
+        
+        menuView = {
+            let menuView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
+            menuView.backgroundColor = .white
+            return menuView
+        }()
+        
+        scrollView.addSubview(menuView)
+        menuView.snp.makeConstraints{
+            $0.top.equalTo(storeInfoView.snp.bottom).offset(SPACING_FOR_VIEW)
+            $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
+            $0.height.equalTo(60 + menus.count * 23)
+        }
+        
+        let titleLabel : UILabel = {
+            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            titleLabel.text = "메뉴"
+            titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+            return titleLabel
+        }()
+        
+        menuView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints{
+            $0.top.leading.equalToSuperview().offset(15)
+        }
+        
+        menuCollectionView.delegate = self
+        menuCollectionView.dataSource = self
+        menuCollectionView.register(MenuCollectionViewCell.self, forCellWithReuseIdentifier: "menuCollectionViewCell")
+        
+        menuView.addSubview(menuCollectionView)
+        menuCollectionView.snp.makeConstraints{
+            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-5)
+        }
+        
+        // 더보기 버튼
+        let menuDetailBtn: UIButton = {
+            let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            btn.setTitle("더보기", for: .normal)
+            btn.titleLabel?.font = btn.titleLabel?.font.withSize(14)
+            btn.setTitleColor(.systemBlue, for: .normal)
+            btn.addTarget(self, action: #selector(menuDetailBtnDidTap(_:)), for: .touchUpInside)
+            return btn
+        }()
+        
+        menuView.addSubview(menuDetailBtn)
+        menuDetailBtn.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(10)
+            $0.trailing.equalToSuperview().offset(-15)
+        }
+    }
+    
+    @objc private func menuDetailBtnDidTap(_ sender: Any){
+        print("menuDetail button tap")
+        self.navigationController?.pushViewController(MenuDetailViewController(), animated: true)
+    }
+    
+    
+    // MARK: reviewView setting
+    
+    private func reviewViewSetting(){
+        reviewView = {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
+            view.backgroundColor = .white
+            return view
+        }()
+        
+        scrollView.addSubview(reviewView)
+        reviewView.snp.makeConstraints{
+            $0.top.equalTo(menuView.snp.bottom).offset(SPACING_FOR_VIEW)
+            $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
+            $0.height.equalTo(60 + reviews.count/4 * 45)
+        }
+        
+        let titleLabel : UILabel = {
+            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            titleLabel.text = "우리 동네 리뷰"
+            titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+            return titleLabel
+        }()
+        
+        reviewView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints{
+            $0.top.leading.equalToSuperview().offset(15)
+        }
+        
+        reviewCollectionView.delegate = self
+        reviewCollectionView.dataSource = self
+        reviewCollectionView.register(ReviewCollectionViewCell.self, forCellWithReuseIdentifier: "reviewCollectionViewCell")
+        
+        reviewView.addSubview(reviewCollectionView)
+        reviewCollectionView.snp.makeConstraints{
+            $0.top.equalTo(titleLabel.snp.bottom).offset(13)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-5)
+        }
+        
+        let reviewDetailBtn: UIButton = {
+            let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            btn.setTitle("더보기", for: .normal)
+            btn.titleLabel?.font = btn.titleLabel?.font.withSize(14)
+            btn.setTitleColor(.systemBlue, for: .normal)
+            btn.addTarget(self, action: #selector(reviewDetailBtnDidTap(_:)), for: .touchUpInside)
+            return btn
+        }()
+        
+        reviewView.addSubview(reviewDetailBtn)
+        reviewDetailBtn.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(10)
+            $0.trailing.equalToSuperview().offset(-15)
+        }
+    }
+    
+    @objc private func reviewDetailBtnDidTap(_ sender: Any){
+        print("reviewDetail button tap")
+        self.navigationController?.pushViewController(ReviewDetailViewController(), animated: true)
+    }
+    
+    
+    // MARK: locationView setting
+    
+    private func locationViewSetting(){
+        locationView = {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
+            view.backgroundColor = .white
+            return view
+        }()
+        
+        scrollView.addSubview(locationView)
+        locationView.snp.makeConstraints{
+            $0.top.equalTo(reviewView.snp.bottom).offset(SPACING_FOR_VIEW)
+            $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
             $0.height.equalTo(200)
         }
         
+        let titleLabel : UILabel = {
+            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            titleLabel.text = "위치"
+            titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+            return titleLabel
+        }()
+        
+        locationView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints{
+            $0.top.leading.equalToSuperview().offset(15)
+        }
+        
+        let tempMap: UIView = {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
+            view.backgroundColor = .lightGray
+            return view
+        }()
+        
+        locationView.addSubview(tempMap)
+        tempMap.snp.makeConstraints{
+            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+            $0.leading.equalToSuperview().offset(15)
+            $0.trailing.equalToSuperview().offset(-15)
+            $0.height.equalTo(135)
+        }
     }
     
+    
+    // MARK: recommendStoreView setting
+    
+    private func recommendStoreViewSetting(){
+        recommendStoreView = {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
+            view.backgroundColor = .white
+            return view
+        }()
+        
+        scrollView.addSubview(recommendStoreView)
+        recommendStoreView.snp.makeConstraints{
+            $0.top.equalTo(locationView.snp.bottom).offset(SPACING_FOR_VIEW)
+            $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
+            $0.bottom.equalTo(scrollView)
+            $0.height.equalTo(200)
+        }
+        
+        let titleLabel : UILabel = {
+            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            titleLabel.text = "이 가게가 좋았다면 여기는 어때요?"
+            titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
+            return titleLabel
+        }()
+        
+        recommendStoreView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints{
+            $0.top.leading.equalToSuperview().offset(15)
+        }
+        
+        // recommendStorecollectionView setting
+        
+        recommendStoreView.addSubview(recommendStoreCollectionView)
+        recommendStoreCollectionView.delegate = self
+        recommendStoreCollectionView.dataSource = self
+        recommendStoreCollectionView.register(CircleCollectionViewCell.self, forCellWithReuseIdentifier: "circleCollectionViewCell")
+        
+        recommendStoreCollectionView.snp.makeConstraints{
+            $0.top.equalTo(titleLabel.snp.bottom).offset(25)
+            $0.leading.equalToSuperview().offset(15)
+            $0.width.equalToSuperview()
+            $0.height.equalTo(110)
+        }
+        
+    }
 }
 
 
@@ -559,9 +908,17 @@ extension StoreDetailViewController: UICollectionViewDataSource, UICollectionVie
             return top5Images.count
         }
         if collectionView == self.storeInfoCollectionView {
-            return 3
+            return storeInfos.count
         }
-        
+        if collectionView == self.menuCollectionView {
+            return menus.count
+        }
+        if collectionView == self.reviewCollectionView {
+            return 2
+        }
+        if collectionView == self.recommendStoreCollectionView {
+            return recommendStoreImages.count
+        }
         return 0
     }
     
@@ -613,12 +970,53 @@ extension StoreDetailViewController: UICollectionViewDataSource, UICollectionVie
         if collectionView == self.storeInfoCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storeInfoCollectionViewCell", for: indexPath) as! StoreInfoCollectionViewCell
             
+//            if indexPath.row < 3 {
+//                cell.iconImageView.image = storeInfoIcons[indexPath.row]
+//            } else {cell.iconImageView.image = storeInfoIcons[0]}
+//
+//            print("22")
+            
+            cell.iconImageView.image = storeInfoIcons[indexPath.row]
+            cell.label.text = storeInfos[indexPath.row]
+            
             if(indexPath.row == 2){
                 cell.detailBtnSetting()
             }
             
-            cell.iconImageView.image = storeInfoIcons[indexPath.row]
-            cell.label.text = storeInfos[indexPath.row]
+            return cell
+        }
+        if collectionView == self.menuCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "menuCollectionViewCell", for: indexPath) as! MenuCollectionViewCell
+            
+            if menus != nil && menus.count != 0 {
+                cell.menu.text = menus[indexPath.row]
+                cell.price.text = prices[indexPath.row]
+            }
+            
+            return cell
+        }
+        if collectionView == self.reviewCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCollectionViewCell", for: indexPath) as! ReviewCollectionViewCell
+            
+            if reviews != nil && reviews.count != 0 {
+                cell.content.text = reviews[indexPath.row*4]
+                cell.writer.text = reviews[indexPath.row*4 + 1]
+                cell.date.text = reviews[indexPath.row*4 + 2]
+                cell.visitNum.text = reviews[indexPath.row*4 + 3] + "번째 방문"
+            }
+            
+            return cell
+        }
+        if collectionView == self.recommendStoreCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "circleCollectionViewCell", for: indexPath) as! CircleCollectionViewCell
+            
+            let recommendStoreImage = UIImage(named: recommendStoreImages[indexPath.row])
+            guard var recommendStoreImage = recommendStoreImage else{
+                print("recommendStore image is nil")
+                return cell
+            }
+            recommendStoreImage = self.resizeImage(image: recommendStoreImage, targetSize: CGSize(width: 110, height: 110))!
+            cell.imageView.image = recommendStoreImage
             
             return cell
         }
@@ -635,7 +1033,16 @@ extension StoreDetailViewController: UICollectionViewDataSource, UICollectionVie
             return CGSize(width: 40, height: 40)
         }
         if collectionView == self.storeInfoCollectionView {
-            return CGSize(width: UIScreen.main.bounds.width, height: 20)
+            return CGSize(width: UIScreen.main.bounds.width, height: 30)
+        }
+        if collectionView == self.menuCollectionView {
+            return CGSize(width: UIScreen.main.bounds.width, height: 23)
+        }
+        if collectionView == self.reviewCollectionView {
+            return CGSize(width: UIScreen.main.bounds.width, height: 45)
+        }
+        if collectionView == self.recommendStoreCollectionView {
+            return CGSize(width: 110, height: 110)
         }
         
         return CGSize(width: 100, height: 100)
@@ -646,7 +1053,7 @@ extension StoreDetailViewController: UICollectionViewDataSource, UICollectionVie
         if collectionView == self.storeImageCollectionView {
             return 3
         }
-        if collectionView == self.recommendItemCollectionView || collectionView == self.top5collectionView || collectionView == self.storeInfoCollectionView {
+        if collectionView == self.recommendItemCollectionView || collectionView == self.top5collectionView || collectionView == self.recommendStoreCollectionView {
             return 15
         }
         
@@ -658,6 +1065,12 @@ extension StoreDetailViewController: UICollectionViewDataSource, UICollectionVie
             print("\(indexPath.row)")
             self.navigationController?.pushViewController(StoreImageDetailViewController(), animated: true)
         }
+    }
+    
+    // TODO: 버튼 눌렀을 때 영업시간 뷰 추가
+    @objc private func detailBtnDidTap(_ sender: Any){
+        print("detail button tap")
+        //StoreInfoCell().updateCollectionView()
     }
 }
 

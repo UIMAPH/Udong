@@ -18,12 +18,10 @@ class CircleCollectionViewCell: UICollectionViewCell{
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.displaySetting()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.displaySetting()
     }
 }
 

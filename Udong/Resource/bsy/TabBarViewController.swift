@@ -32,7 +32,7 @@ class TabBarViewController: UITabBarController{
         let homeTab = UINavigationController(rootViewController: StoreDetailViewController())
         homeTab.tabBarItem = homeTabBarItem
         //homeTab.tabBarItem.imageInsets = UIEdgeInsets(top: 300, left: 0, bottom: -300, right: 0)
-        let searchTab = UINavigationController(rootViewController: StoreDetailViewController())
+        let searchTab = UINavigationController(rootViewController: test())
         searchTab.tabBarItem = searchTabBarItem
         let cameraTab = UINavigationController(rootViewController: StoreDetailViewController())
         cameraTab.tabBarItem = cameraTabBarItem

@@ -115,7 +115,7 @@ class StoreDetailViewController: UIViewController{
         self.scrollViewSetting()
         
         // display setting func call
-        self.numListViewSetting()
+        self.numListViewSetting(scrollView)
         self.tierViewSetting()
         self.heartViewSetting()
         
@@ -184,7 +184,7 @@ extension StoreDetailViewController{
     
     @objc private func backBtnDidTap(_ sender: Any){
         print("tap back button tabp")
-        self.navigationController?.pushViewController(StoreDetailViewController(), animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc private func reviewWriteBtnDidTap(_ sender: Any){
@@ -210,7 +210,7 @@ extension StoreDetailViewController{
     
     // MARK: 방문수, 리뷰수, 단골수
     
-    private func numListViewSetting(){
+    func numListViewSetting(_ myView: UIView){
         numListView = {
             let numList = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
             numList.backgroundColor = .white
@@ -247,10 +247,10 @@ extension StoreDetailViewController{
             $0.leading.equalTo(reviewNumLabel.snp.trailing).offset(10)
         }
         
-        scrollView.addSubview(numListView)
+        myView.addSubview(numListView)
         numListView.snp.makeConstraints{
-            $0.top.equalTo(scrollView)
-            $0.width.equalTo(scrollView.safeAreaLayoutGuide)
+            $0.top.equalTo(myView.safeAreaLayoutGuide)
+            $0.width.equalTo(myView.safeAreaLayoutGuide)
             $0.height.equalTo(20)
         }
     }
@@ -530,7 +530,8 @@ extension StoreDetailViewController{
     // recommendItemView tap gesture 정의
     @objc func recommendItemViewDidTap(_ sender: Any){
         print("recommendItemView tap")
-        self.navigationController?.pushViewController(RecommendItemDetailViewController(), animated: true)
+        let vc = RecommendItemViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: top5View setting
@@ -625,7 +626,8 @@ extension StoreDetailViewController{
     // top5View tap gesture 정의
     @objc func top5ViewDidTap(_ sender: Any){
         print("top5View tap")
-        self.navigationController?.pushViewController(Top5DetailViewController(), animated: true)
+        let vc = Top5DetailViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -736,7 +738,8 @@ extension StoreDetailViewController{
     
     @objc private func menuDetailBtnDidTap(_ sender: Any){
         print("menuDetail button tap")
-        self.navigationController?.pushViewController(MenuDetailViewController(), animated: true)
+        let vc = MenuDetailViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -797,7 +800,8 @@ extension StoreDetailViewController{
     
     @objc private func reviewDetailBtnDidTap(_ sender: Any){
         print("reviewDetail button tap")
-        self.navigationController?.pushViewController(ReviewDetailViewController(), animated: true)
+        let vc = StoreReviewListViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -859,7 +863,7 @@ extension StoreDetailViewController{
             $0.top.equalTo(locationView.snp.bottom).offset(SPACING_FOR_VIEW)
             $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
             $0.bottom.equalTo(scrollView)
-            $0.height.equalTo(200)
+            $0.height.equalTo(190)
         }
         
         let titleLabel : UILabel = {
@@ -874,8 +878,8 @@ extension StoreDetailViewController{
             $0.top.leading.equalToSuperview().offset(15)
         }
         
-        // recommendStorecollectionView setting
         
+        // recommendStorecollectionView setting
         recommendStoreView.addSubview(recommendStoreCollectionView)
         recommendStoreCollectionView.delegate = self
         recommendStoreCollectionView.dataSource = self
@@ -1061,9 +1065,21 @@ extension StoreDetailViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         if collectionView == self.storeImageCollectionView {
-            print("\(indexPath.row)")
-            self.navigationController?.pushViewController(StoreImageDetailViewController(), animated: true)
+            print("storeImage did tap")
+            
+            let vc = StoreImageDetailViewController()
+            vc.index = indexPath.row
+            vc.storeImages = self.storeImages
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        if collectionView == self.reviewCollectionView {
+            print("review did tap")
+            let vc = ReviewDetailViewController()
+            self.navigationController?.pushViewController(vc, animated: true) // 리뷰 상세 페이지로 이동
         }
     }
     

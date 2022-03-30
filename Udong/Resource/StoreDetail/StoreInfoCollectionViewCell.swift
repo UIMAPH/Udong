@@ -41,7 +41,8 @@ class StoreInfoCollectionViewCell: UICollectionViewCell{
         }
         
         label.snp.makeConstraints{
-            $0.top.equalTo(iconImageView)
+            //$0.top.equalTo(iconImageView)
+            $0.centerY.equalTo(contentView)
             $0.leading.equalTo(iconImageView.snp.trailing).offset(10)
         }
     }
@@ -72,6 +73,7 @@ class StoreInfoCollectionViewCell: UICollectionViewCell{
     // TODO: 버튼 눌렀을 때 영업시간 뷰 추가
     @objc private func detailBtnDidTap(_ sender: Any){
         print("detail button tap")
-        StoreDetailViewController().officeHourCollectionViewSetting()
+        //StoreDetailViewController().officeHourCollectionViewSetting()
+        test().detailBtnDidTap()
     }
 }

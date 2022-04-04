@@ -74,6 +74,6 @@ class StoreInfoCollectionViewCell: UICollectionViewCell{
     @objc private func detailBtnDidTap(_ sender: Any){
         print("detail button tap")
         //StoreDetailViewController().officeHourCollectionViewSetting()
-        test().detailBtnDidTap()
+        //test().detailBtnDidTap()
     }
 }

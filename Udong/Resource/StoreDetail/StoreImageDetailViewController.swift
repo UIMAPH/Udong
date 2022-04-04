@@ -14,7 +14,8 @@ import Foundation
 
 class StoreImageDetailViewController: UIViewController{
     
-    var storeImages: [String] = []
+    //var storeImages: [String] = []
+    var storeImages: [String] = ["rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png"]
     var index: Int = 0
     var preOffset: Double = 0.0
     
@@ -96,52 +97,7 @@ extension StoreImageDetailViewController{
     }
 }
 
-extension StoreImageDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storeImageCell", for: indexPath)
-        
-        cell.backgroundColor = .red
-        
-//        let storeImage = UIImage(named: storeImages[indexPath.row])
-//        guard var storeImage = storeImage else{
-//            print("store image is nil")
-//            return cell
-//        }
-//        storeImage = self.resizeImage(image: storeImage, targetSize: CGSize(width: 100, height: 100))!
-//        cell.storeImageView.image = storeImage
-//        cell.backgroundColor = .lightGray
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    private func collectionViewSetting(){
-        self.view.addSubview(storeImageCollectionView)
-        storeImageCollectionView.delegate = self
-        storeImageCollectionView.dataSource = self
-        storeImageCollectionView.snp.makeConstraints{
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(30) // numList의 높이가 20
-            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
-        }
-        storeImageCollectionView.register(StoreImageCell.self, forCellWithReuseIdentifier: "storeImageCell")
-        
-        // collectionView paging 설정
-        storeImageCollectionView.isPagingEnabled = true
-    }
-    
-}
+// MARK: display setting
 
 extension StoreImageDetailViewController{
     
@@ -160,6 +116,54 @@ extension StoreImageDetailViewController{
     }
 }
 
+// MARK: collectionView setting
+
+extension StoreImageDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    private func collectionViewSetting(){
+        self.view.addSubview(storeImageCollectionView)
+        storeImageCollectionView.delegate = self
+        storeImageCollectionView.dataSource = self
+        storeImageCollectionView.snp.makeConstraints{
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(30) // numList의 높이가 20
+            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        storeImageCollectionView.register(StoreImageCell.self, forCellWithReuseIdentifier: "storeImageCell")
+        
+        // collectionView paging 설정
+        storeImageCollectionView.isPagingEnabled = true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return storeImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storeImageCell", for: indexPath) as! StoreImageCell
+        
+        cell.backgroundColor = .red
+        
+        let storeImage = UIImage(named: storeImages[indexPath.row])
+        guard var storeImage = storeImage else{
+            print("store image is nil")
+            return cell
+        }
+        storeImage = StoreDetailViewController().resizeImage(image: storeImage, targetSize: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))!
+        cell.storeImageView.image = storeImage
+        cell.backgroundColor = .lightGray
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+}
 
 extension StoreImageDetailViewController: UIScrollViewDelegate{
     

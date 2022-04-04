@@ -1,4 +1,13 @@
 //
+//  test.swift
+//  movieAPI
+//
+//  Created by  sangyeon on 2022/04/05.
+//
+
+import Foundation
+
+//
 //  StoreDetailViewController.swift
 //  Udong
 //
@@ -13,7 +22,7 @@ let SPACING_FOR_VIEW = 2
 
 class StoreDetailViewController: UIViewController{
     
-    let storeImages = ["rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png"]  // 가게 이미지 저장 - 최대 10개
+    let storeImages: [String] = ["rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png"]  // 가게 이미지 저장 - 최대 10개
     
     let recommendItem = "단무지 맛집"  // 추천항목 저장
     var recommendItemImages: [String] = []  // 추천항목 이미지 저장
@@ -21,15 +30,15 @@ class StoreDetailViewController: UIViewController{
     var top5Images: [String] = []  // // top5 단골 이미지 저장
     
     let storeInfoIcons = [UIImage(systemName: "mappin.and.ellipse"), UIImage(systemName: "phone.fill"), UIImage(systemName: "clock")]
-    var storeInfos = ["주소", "전화번호", "영업시간"]  /// 가게 주소, 전화번호, 영업시간 저장
-    let officeHours = ["월요일", "월요일", "월요일", "월요일", "월요일", "월요일", "월요일"]
+    var storeInfos: [String] = ["주소", "전화번호", "영업시간"]  /// 가게 주소, 전화번호, 영업시간 저장
+    let officeHours: [String] = ["월요일", "월요일", "월요일", "월요일", "월요일", "월요일", "월요일"]
     
-    let menus = ["김치 치즈 가쯔동", "김치 치즈 가쯔동", "김치 치즈 가쯔동", "김치 치즈 가쯔동"]
-    let prices = ["7,500원", "7,500원", "7,500원", "7,500원"]
+    let menus: [String] = ["김치 치즈 가쯔동", "김치 치즈 가쯔동", "김치 치즈 가쯔동", "김치 치즈 가쯔동"]
+    let prices: [String] = ["7,500원", "7,500원", "7,500원", "7,500원"]
     
-    let reviews = ["내용입니다1", "작성자1", "22.03.21", "1", "내용입니다2", "작성자2", "22.03.22", "2"]
+    let reviews: [String] = ["내용입니다1", "작성자1", "22.03.21", "1", "내용입니다2", "작성자2", "22.03.22", "2"]
     
-    var recommendStoreImages = ["new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png"]  // 추천 가게 이미지 저장
+    var recommendStoreImages: [String] = ["new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png"]  // 추천 가게 이미지 저장
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -189,7 +198,7 @@ extension StoreDetailViewController{
     
     @objc private func reviewWriteBtnDidTap(_ sender: Any){
         print("review write button tap")
-        self.navigationController?.pushViewController(StoreImageDetailViewController(), animated: true)  // 리뷰 작성 페이지로 수정
+        self.navigationController?.pushViewController(StoreImageDetailViewController(), animated: true)  // 리뷰 작성 페이지로 수정 - 동네 주민일 시 8-0, 아니면 8-2 페이지로 이동
     }
 }
 
@@ -249,7 +258,7 @@ extension StoreDetailViewController{
         
         myView.addSubview(numListView)
         numListView.snp.makeConstraints{
-            $0.top.equalTo(myView.safeAreaLayoutGuide)
+            $0.top.equalTo(myView)
             $0.width.equalTo(myView.safeAreaLayoutGuide)
             $0.height.equalTo(20)
         }
@@ -391,7 +400,11 @@ extension StoreDetailViewController{
         storeImageView.snp.makeConstraints{
             $0.top.equalTo(tierView.snp.bottom)
             $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
-            $0.height.equalTo(120)
+            if storeImages.count == 0 {
+                $0.height.equalTo(0)
+            } else {
+                $0.height.equalTo(120)
+            }
         }
         
         storeImageCollectionView.delegate = self
@@ -404,7 +417,7 @@ extension StoreDetailViewController{
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview().offset(15)
             $0.trailing.equalToSuperview()
-            $0.height.equalTo(120)
+            $0.height.equalTo(storeImageView)
         }
     }
 
@@ -423,11 +436,14 @@ extension StoreDetailViewController{
         recommendItemView.snp.makeConstraints{
             $0.top.equalTo(storeImageCollectionView.snp.bottom).offset(SPACING_FOR_VIEW)
             $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
-            if recommendItemImages.count != 0 {
-                $0.height.equalTo(125)
+            if recommendItemImages.count == 0 {
+                $0.height.equalTo(90)
+            }
+            else if recommendItemImages.count == 1 {
+                $0.height.equalTo(75)
             }
             else {
-                $0.height.equalTo(90)
+                $0.height.equalTo(125)
             }
         }
         
@@ -489,7 +505,11 @@ extension StoreDetailViewController{
                 $0.top.equalTo(recommendItemImageView.snp.bottom).offset(5)
                 $0.leading.equalToSuperview().offset(20)
                 $0.width.equalToSuperview()
-                $0.height.equalTo(50)
+                if recommendItemImages.count == 1 {
+                    $0.height.equalTo(0)
+                } else {
+                    $0.height.equalTo(50)
+                }
             }
             
             
@@ -807,6 +827,7 @@ extension StoreDetailViewController{
     
     // MARK: locationView setting
     
+    // TODO: 지도 라이브러리 추가. 지도 우측 상단 버튼 클릭 시 지도 확대
     private func locationViewSetting(){
         locationView = {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
@@ -1079,6 +1100,12 @@ extension StoreDetailViewController: UICollectionViewDataSource, UICollectionVie
         if collectionView == self.reviewCollectionView {
             print("review did tap")
             let vc = ReviewDetailViewController()
+            self.navigationController?.pushViewController(vc, animated: true) // 리뷰 상세 페이지로 이동
+        }
+        
+        if collectionView == self.recommendStoreCollectionView {
+            print("store did tap")
+            let vc = StoreDetailViewController()
             self.navigationController?.pushViewController(vc, animated: true) // 리뷰 상세 페이지로 이동
         }
     }

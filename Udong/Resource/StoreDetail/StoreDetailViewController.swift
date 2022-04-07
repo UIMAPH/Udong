@@ -22,6 +22,10 @@ let SPACING_FOR_VIEW = 2
 
 class StoreDetailViewController: UIViewController{
     
+    let myTierImage: UIImage? = UIImage(named: "new-moon.png")
+    let tierName: String = "tier name"
+    let myVisitNum: Int = 0
+    
     let storeImages: [String] = ["rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png"]  // 가게 이미지 저장 - 최대 10개
     
     let recommendItem = "단무지 맛집"  // 추천항목 저장
@@ -124,7 +128,7 @@ class StoreDetailViewController: UIViewController{
         self.scrollViewSetting()
         
         // display setting func call
-        self.numListViewSetting(scrollView)
+        self.numListViewSetting()
         self.tierViewSetting()
         self.heartViewSetting()
         
@@ -219,7 +223,7 @@ extension StoreDetailViewController{
     
     // MARK: 방문수, 리뷰수, 단골수
     
-    func numListViewSetting(_ myView: UIView){
+    private func numListViewSetting(){
         numListView = {
             let numList = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
             numList.backgroundColor = .white
@@ -256,10 +260,10 @@ extension StoreDetailViewController{
             $0.leading.equalTo(reviewNumLabel.snp.trailing).offset(10)
         }
         
-        myView.addSubview(numListView)
+        scrollView.addSubview(numListView)
         numListView.snp.makeConstraints{
-            $0.top.equalTo(myView)
-            $0.width.equalTo(myView.safeAreaLayoutGuide)
+            $0.top.equalTo(scrollView)
+            $0.width.equalTo(scrollView.safeAreaLayoutGuide)
             $0.height.equalTo(20)
         }
     }
@@ -274,53 +278,52 @@ extension StoreDetailViewController{
         }()
         
         let tierImage: UIImage = {
-            let tierImage = UIImage(named: "new-moon.png") // 티어 이미지 설정
-            guard var tierImage = tierImage else{
+            let image = myTierImage // 티어 이미지 설정
+            guard var image = image else{
                 print("tier image is nil")
                 return UIImage()
             }
-            tierImage = self.resizeImage(image: tierImage, targetSize: CGSize(width: 30, height: 30))!
+            image = self.resizeImage(image: image, targetSize: CGSize(width: 30, height: 30))!
             
-            return tierImage
+            return image
         }()
         
         let tierImageView: UIImageView = {
-            let tierImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-            tierImageView.image = tierImage
-            
-            return tierImageView
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            imageView.image = tierImage
+            return imageView
         }()
         
-        let tierName: UILabel = {
-            let tierName = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-            tierName.text = "tier name"  // 티어 String)
-            tierName.font = UIFont.boldSystemFont(ofSize: 14)
-            return tierName
+        let tierNameLabel: UILabel = {
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            label.text = tierName
+            label.font = UIFont.boldSystemFont(ofSize: 14)
+            return label
         }()
         
-        let myvisitNum = "0"  // 유저의 방문수 받아와 저장 (String)
+        let myvisitNum = String(self.myVisitNum)  // 유저의 방문수 받아와 저장 (String)
         let myVisitNumLabel: UILabel = {
-            let myVisitNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-            myVisitNumLabel.text = "나는 이 가게를 " + myvisitNum + "번째 방문했어요"
-            myVisitNumLabel.font = UIFont.boldSystemFont(ofSize: 12)
-            return myVisitNumLabel
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            label.text = "나는 이 가게를 " + myvisitNum + "번째 방문했어요"
+            label.font = UIFont.boldSystemFont(ofSize: 12)
+            return label
         }()
         
         tierView.addSubview(tierImageView)
-        tierView.addSubview(tierName)
+        tierView.addSubview(tierNameLabel)
         tierView.addSubview(myVisitNumLabel)
         
         tierImageView.snp.makeConstraints{
             $0.leading.equalToSuperview().offset(20)
             $0.centerY.equalTo(tierView.snp.centerY)
         }
-        tierName.snp.makeConstraints{
+        tierNameLabel.snp.makeConstraints{
             $0.top.equalToSuperview().offset(10)
             $0.leading.equalTo(tierImageView.snp.trailing).offset(10)
         }
         myVisitNumLabel.snp.makeConstraints{
-            $0.leading.equalTo(tierName)
-            $0.top.equalTo(tierName.snp.bottom)
+            $0.leading.equalTo(tierNameLabel)
+            $0.top.equalTo(tierNameLabel.snp.bottom)
         }
         
         scrollView.addSubview(tierView)
@@ -647,6 +650,9 @@ extension StoreDetailViewController{
     @objc func top5ViewDidTap(_ sender: Any){
         print("top5View tap")
         let vc = Top5DetailViewController()
+        vc.myTierImage = self.myTierImage
+        vc.myTier = self.tierName
+        vc.myvisitNum = self.myVisitNum
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

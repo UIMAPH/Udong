@@ -19,6 +19,7 @@ class StoreImageDetailViewController: UIViewController{
     var index: Int = 0
     var preOffset: Double = 0.0
     
+    var numListView = UIView()
     lazy var storeImageCollectionView: UICollectionView = {
         let f1 = UICollectionViewFlowLayout()
         f1.scrollDirection = .horizontal
@@ -30,7 +31,7 @@ class StoreImageDetailViewController: UIViewController{
         super.viewDidLoad()
         
         self.navigationBarSetting()
-        StoreDetailViewController().numListViewSetting(self.view)
+        self.numListViewSetting()
         self.collectionViewSetting()
         self.displaySetting()
         
@@ -101,6 +102,51 @@ extension StoreImageDetailViewController{
 
 extension StoreImageDetailViewController{
     
+    private func numListViewSetting(){
+        numListView = {
+            let numList = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
+            numList.backgroundColor = .white
+            return numList
+        }()
+        
+        let visitNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        visitNumLabel.text = "방문수 "
+        
+        let reviewNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        reviewNumLabel.text = "리뷰수 "
+        
+        let regularNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        regularNumLabel.text = "단골수 "
+        
+        let numArr = ["0", "0", "0"] // 백에서 방문수, 리뷰수, 단골수 받아와 저장 (String으로)
+        let labelArr = [visitNumLabel, reviewNumLabel, regularNumLabel]
+        
+        for i in 0..<3{
+            labelArr[i].font = labelArr[i].font.withSize(16)
+            labelArr[i].textColor = .systemBlue
+            labelArr[i].text! += numArr[i]
+            
+            numListView.addSubview(labelArr[i])
+        }
+        
+        reviewNumLabel.snp.makeConstraints{
+            $0.centerX.equalTo(numListView.snp.centerX)
+        }
+        visitNumLabel.snp.makeConstraints{
+            $0.trailing.equalTo(reviewNumLabel.snp.leading).offset(-10)
+        }
+        regularNumLabel.snp.makeConstraints{
+            $0.leading.equalTo(reviewNumLabel.snp.trailing).offset(10)
+        }
+        
+        self.view.addSubview(numListView)
+        numListView.snp.makeConstraints{
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.width.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(20)
+        }
+    }
+    
     private func displaySetting(){
         self.view.backgroundColor = .white
         
@@ -125,7 +171,7 @@ extension StoreImageDetailViewController: UICollectionViewDataSource, UICollecti
         storeImageCollectionView.delegate = self
         storeImageCollectionView.dataSource = self
         storeImageCollectionView.snp.makeConstraints{
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(30) // numList의 높이가 20
+            $0.top.equalTo(numListView.snp.bottom).offset(10) 
             $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         storeImageCollectionView.register(StoreImageCell.self, forCellWithReuseIdentifier: "storeImageCell")

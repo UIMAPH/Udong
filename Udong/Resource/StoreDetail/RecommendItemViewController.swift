@@ -9,6 +9,7 @@ import Foundation
 
 class RecommendItemViewController: UIViewController{
     
+    var numListView = UIView()
     var myView = UIView()
     
     let top1Title = ["로컬들이 선택한 ", "\"단무지 맛집\""]
@@ -34,7 +35,7 @@ class RecommendItemViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationBarSetting()
-        StoreDetailViewController().numListViewSetting(self.view)
+        self.numListViewSetting()
         self.displaySetting()
         self.mainCollectionViewSetting()
         self.otherRecommendViewSetting()
@@ -102,6 +103,51 @@ extension RecommendItemViewController{
 
 extension RecommendItemViewController {
     
+    private func numListViewSetting(){
+        numListView = {
+            let numList = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
+            numList.backgroundColor = .white
+            return numList
+        }()
+        
+        let visitNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        visitNumLabel.text = "방문수 "
+        
+        let reviewNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        reviewNumLabel.text = "리뷰수 "
+        
+        let regularNumLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        regularNumLabel.text = "단골수 "
+        
+        let numArr = ["0", "0", "0"] // 백에서 방문수, 리뷰수, 단골수 받아와 저장 (String으로)
+        let labelArr = [visitNumLabel, reviewNumLabel, regularNumLabel]
+        
+        for i in 0..<3{
+            labelArr[i].font = labelArr[i].font.withSize(16)
+            labelArr[i].textColor = .systemBlue
+            labelArr[i].text! += numArr[i]
+            
+            numListView.addSubview(labelArr[i])
+        }
+        
+        reviewNumLabel.snp.makeConstraints{
+            $0.centerX.equalTo(numListView.snp.centerX)
+        }
+        visitNumLabel.snp.makeConstraints{
+            $0.trailing.equalTo(reviewNumLabel.snp.leading).offset(-10)
+        }
+        regularNumLabel.snp.makeConstraints{
+            $0.leading.equalTo(reviewNumLabel.snp.trailing).offset(10)
+        }
+        
+        self.view.addSubview(numListView)
+        numListView.snp.makeConstraints{
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.width.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(20)
+        }
+    }
+    
     private func displaySetting(){
         myView = {
             let myView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
@@ -110,7 +156,7 @@ extension RecommendItemViewController {
         }()
         self.view.addSubview(myView)
         myView.snp.makeConstraints{
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(30)
+            $0.top.equalTo(numListView.snp.bottom).offset(10)
             $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
@@ -129,47 +175,47 @@ extension RecommendItemViewController {
             $0.height.equalTo(70)
         }
         
-        let image = UIImage(named: top5Image[0])
-        guard var image = image else{
+        let top1Image = UIImage(named: top5Image[0])
+        guard var top1Image = top1Image else{
             print("image is nil")
             return
         }
-        image = StoreDetailViewController().resizeImage(image: image, targetSize: CGSize(width: 50, height: 50))!
+        top1Image = StoreDetailViewController().resizeImage(image: top1Image, targetSize: CGSize(width: 50, height: 50))!
         
-        let iconImageView: UIImageView = {
+        let top1ImageView: UIImageView = {
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-            imageView.image = image
+            imageView.image = top1Image
             return imageView
         }()
-        let label1: UILabel = {
+        let top1Label1: UILabel = {
             let label = UILabel()
             label.text = top1Title[0]
             label.font = UIFont.boldSystemFont(ofSize: 15)
             return label
         }()
-        let label2: UILabel = {
+        let top1Label2: UILabel = {
             let label = UILabel()
             label.text = top1Title[1]
             label.font = UIFont.boldSystemFont(ofSize: 15)
             return label
         }()
         
-        top1View.addSubview(iconImageView)
-        top1View.addSubview(label1)
-        top1View.addSubview(label2)
+        top1View.addSubview(top1ImageView)
+        top1View.addSubview(top1Label1)
+        top1View.addSubview(top1Label2)
         
-        iconImageView.snp.makeConstraints{
+        top1ImageView.snp.makeConstraints{
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(15)
         }
         
-        label1.snp.makeConstraints{
-            $0.top.equalTo(iconImageView).offset(7)
-            $0.leading.equalTo(iconImageView.snp.trailing).offset(10)
+        top1Label1.snp.makeConstraints{
+            $0.centerY.equalToSuperview().offset(-9)
+            $0.leading.equalTo(top1ImageView.snp.trailing).offset(10)
         }
-        label2.snp.makeConstraints{
-            $0.top.equalTo(label1.snp.bottom)
-            $0.leading.equalTo(label1)
+        top1Label2.snp.makeConstraints{
+            $0.centerY.equalToSuperview().offset(9)
+            $0.leading.equalTo(top1Label1)
         }
     }
     
@@ -184,7 +230,7 @@ extension RecommendItemViewController {
         mainCollectionView.snp.makeConstraints{
             $0.top.equalTo(top1View.snp.bottom).offset(SPACING_FOR_VIEW)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(60*5 + 20)
+            $0.height.equalTo(60*top5Title.count + 20)
         }
     }
     
@@ -306,5 +352,12 @@ extension RecommendItemViewController: UICollectionViewDataSource, UICollectionV
         return 3
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.mainCollectionView {
+            print("btn did tap")
+            let vc = UIViewController()
+            self.navigationController?.pushViewController(vc, animated: true) // 리뷰 리스트 페이지(6-11)로 이동
+        }
+    }
     
 }

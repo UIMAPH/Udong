@@ -764,7 +764,7 @@ extension StoreDetailViewController{
     
     @objc private func menuDetailBtnDidTap(_ sender: Any){
         print("menuDetail button tap")
-        let vc = MenuDetailViewController()
+        let vc = MenuListViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -1112,7 +1112,7 @@ extension StoreDetailViewController: UICollectionViewDataSource, UICollectionVie
         if collectionView == self.recommendStoreCollectionView {
             print("store did tap")
             let vc = StoreDetailViewController()
-            self.navigationController?.pushViewController(vc, animated: true) // 리뷰 상세 페이지로 이동
+            self.navigationController?.pushViewController(vc, animated: true) // 해당 가게 상세 페이지로 이동
         }
     }
     

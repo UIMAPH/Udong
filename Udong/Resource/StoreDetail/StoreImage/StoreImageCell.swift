@@ -31,16 +31,9 @@ extension StoreImageCell{
     private func displaySetting(){
         
         storeImageView = {
-            let storeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-//            let storeImage = UIImage(named: "rectangle.png")  // 기본이미지 설정
-//            guard var storeImage = storeImage else{
-//                print("store image is nil")
-//                return UIImageView()
-//            }
-//            storeImage = StoreDetailViewController().resizeImage(image: storeImage, targetSize: CGSize(width: 100, height: 100))!
-//            storeImageView.image = storeImage
-
-            return storeImageView
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+            //imageView.contentMode = .scaleAspectFill
+            return imageView
         }()
 
         contentView.addSubview(storeImageView)

@@ -15,6 +15,11 @@ class Top5DetailViewController: UIViewController{
     var myTier: String = ""
     var myvisitNum: Int = 0
     
+    let top5Colors: [UIColor] = [UIColor(red: 0xE4, green: 0x0E, blue: 0x0E),
+                                UIColor(red: 0xF4, green: 0x5D, blue: 0x5D),
+                                UIColor(red: 0xFD, green: 0xB2, blue: 0xB2),
+                                UIColor(red: 0xFA, green: 0xCD, blue: 0xCD),
+                                UIColor(red: 0xFF, green: 0xFF, blue: 0xFF)]
     let top5Image = ["new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png", "new-moon.png"]
     let top5Name = ["이름", "이름", "이름", "이름", "이름"]
     let top5Title = ["칭호", "칭호", "칭호", "칭호", "칭호"]
@@ -153,7 +158,7 @@ extension Top5DetailViewController {
         numListView.snp.makeConstraints{
             $0.top.equalTo(scrollView)
             $0.width.equalTo(scrollView.safeAreaLayoutGuide)
-            $0.height.equalTo(20)
+            $0.height.equalTo(30)
         }
     }
     
@@ -161,16 +166,6 @@ extension Top5DetailViewController {
     
     private func displaySetting(){
         
-//        myView = {
-//            let myView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
-//            myView.backgroundColor = UIColor(red: 0xA8, green: 0xE2, blue: 0xFF)
-//            return myView
-//        }()
-//        self.view.addSubview(myView)
-//        myView.snp.makeConstraints{
-//            $0.top.equalTo(numListView.snp.bottom).offset(10)
-//            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
-//        }
         self.view.addSubview(scrollView)
         scrollView.snp.makeConstraints{
             $0.edges.equalTo(self.view.safeAreaLayoutGuide)
@@ -186,7 +181,7 @@ extension Top5DetailViewController {
         
         scrollView.addSubview(myTierView)
         myTierView.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(SPACING_FOR_VIEW)
+            $0.top.equalTo(numListView.snp.bottom).offset(SPACING_FOR_VIEW)
             $0.leading.trailing.equalTo(scrollView.safeAreaLayoutGuide)
             $0.height.equalTo(150)
         }
@@ -199,8 +194,13 @@ extension Top5DetailViewController {
         myTierImage = StoreDetailViewController().resizeImage(image: myTierImage, targetSize: CGSize(width: 90, height: 90))!
         
         let myTierImageView: UIImageView = {
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 90, height: 90))
             imageView.image = myTierImage
+            imageView.layer.cornerRadius = imageView.frame.height/2
+            imageView.clipsToBounds = true
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.layer.borderWidth = 3
+            imageView.layer.borderColor = top5Colors[0].cgColor
             return imageView
         }()
         let myTierLabel: UILabel = {
@@ -302,9 +302,11 @@ extension Top5DetailViewController: UICollectionViewDataSource, UICollectionView
         cell.iconImageView.image = image
         cell.ranking.text = String(indexPath.row+1) + "등"
         cell.name.text = top5Name[indexPath.row]
-        cell.title.text = top5Title[indexPath.row]
+        cell.title.text = "\"" + top5Title[indexPath.row] + "\""
         cell.tier.text = top5Tier[indexPath.row]
         cell.numList.text = "리뷰수 " + String(top5ReviewNum[indexPath.row]) + " 방문수 " + String(top5VisitNum[indexPath.row])
+        
+        cell.iconImageView.layer.borderColor = top5Colors[indexPath.row].cgColor
 
         return cell
 
@@ -316,6 +318,12 @@ extension Top5DetailViewController: UICollectionViewDataSource, UICollectionView
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(SPACING_FOR_VIEW)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("user did tap")
+        let vc = UserReviewListViewController()
+        self.navigationController?.pushViewController(vc, animated: true) // 해당 유저의 리뷰 리스트로 이동
     }
 
 }

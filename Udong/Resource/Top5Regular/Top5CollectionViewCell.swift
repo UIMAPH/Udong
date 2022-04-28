@@ -10,7 +10,7 @@ import Foundation
 class Top5CollectionViewCell: UICollectionViewCell{
     
     var ranking = UILabel()
-    var iconImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+    var iconImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
     var name = UILabel()
     var title = UILabel()  // 칭호
     var tier = UILabel()
@@ -33,6 +33,10 @@ class Top5CollectionViewCell: UICollectionViewCell{
         contentView.backgroundColor = .white
         
         iconImageView.image = UIImage()
+        iconImageView.layer.cornerRadius = iconImageView.frame.height/2
+        iconImageView.clipsToBounds = true
+        iconImageView.translatesAutoresizingMaskIntoConstraints = false
+        iconImageView.layer.borderWidth = 3
         contentView.addSubview(iconImageView)
         
         let variables = [ranking, name, title, tier, numList]

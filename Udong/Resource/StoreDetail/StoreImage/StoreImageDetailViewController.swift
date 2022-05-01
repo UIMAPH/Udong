@@ -186,9 +186,7 @@ extension StoreImageDetailViewController: UICollectionViewDataSource, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storeImageCell", for: indexPath) as! StoreImageCell
-        
-        cell.backgroundColor = .red
-        
+
         let storeImage = UIImage(named: storeImages[indexPath.row])
         guard var storeImage = storeImage else{
             print("store image is nil")

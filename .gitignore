@@ -112,3 +112,5 @@ iOSInjectionProject/
 #
 .DS_Store
 Udong.xcworkspace/xcuserdata/*
+/DS_Store
+Udong.xcworkspace/**/*.xcuserstate

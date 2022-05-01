@@ -1,0 +1,6 @@
+module Pods_Udong {
+  umbrella header "Pods-Udong-umbrella.h"
+
+  export *
+  module * { export * }
+}

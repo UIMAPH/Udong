@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class RecommendItemCollectionViewCell: UICollectionViewCell{
     var itemLabel = UILabel()

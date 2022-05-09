@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // TODO: Menu에 이미지 추가
 struct Menu: Codable {

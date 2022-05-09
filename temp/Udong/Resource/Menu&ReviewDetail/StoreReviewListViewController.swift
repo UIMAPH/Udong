@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Review {
     let content, writer: String?

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // TODO: imageIndex 1이랑 10에서 오류잡기
 // TODO: 리뷰 최대 글자수 30*10 = 300자 정도

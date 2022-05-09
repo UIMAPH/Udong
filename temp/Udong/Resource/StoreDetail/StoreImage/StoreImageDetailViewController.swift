@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// ImageSlideshow 라이브러리 이용
 /// https://jellysong.tistory.com/74

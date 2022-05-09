@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // TODO: 버튼 눌렀을 때 view 변화 구현
 class test: UIViewController {

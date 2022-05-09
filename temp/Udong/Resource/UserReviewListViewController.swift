@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class UserReviewListViewController: UIViewController{
     override func viewDidLoad() {

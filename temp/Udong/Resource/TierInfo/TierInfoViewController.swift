@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct TierInfo {
     let name, info: String?

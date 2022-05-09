@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // TODO: 티어 아이콘 주위 테두리
 

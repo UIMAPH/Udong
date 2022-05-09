@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-import DropDown
+
 import SnapKit
 
 class MainViewController: UIViewController {
@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     
     var currentArea = UILabel()
     var leftBarView = UIView()
-    var dropDown = DropDown()
+    //var dropDown = DropDown()
     var statusBackView: UIView = {
         let statusBackView = UIView()
         statusBackView.backgroundColor = .mainblue
@@ -116,18 +116,18 @@ class MainViewController: UIViewController {
             $0.leading.top.trailing.equalToSuperview()
             $0.height.equalTo(statusBarHeight)
         }
-        dropDown.dataSource = ["용현 1, 4동", "내 주변 3km"]
-        dropDown.anchorView = leftBarButton
-        dropDown.bottomOffset = CGPoint(x: 0, y: 40)
-        dropDown.cornerRadius = 15
-        dropDown.backgroundColor = .white
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.leftBarButton.title = item
-            self.dropDown.clearSelection()
-        }
+//        dropDown.dataSource = ["용현 1, 4동", "내 주변 3km"]
+//        dropDown.anchorView = leftBarButton
+//        dropDown.bottomOffset = CGPoint(x: 0, y: 40)
+//        dropDown.cornerRadius = 15
+//        dropDown.backgroundColor = .white
+//        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+//            self.leftBarButton.title = item
+//            self.dropDown.clearSelection()
+//        }
     }
     @objc private func tapDropDown(_ sender: Any){
-        dropDown.show()
+        //dropDown.show()
     }
     
     

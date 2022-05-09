@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import UIKit
 
 class MainCollectionViewLargeCell: UICollectionViewCell {
     

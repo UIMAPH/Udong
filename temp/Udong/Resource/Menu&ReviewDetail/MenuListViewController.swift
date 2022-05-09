@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 // TODO: Menu에 이미지 추가
-struct Menu: Codable {
+struct _Menu: Codable {
     let id: Int?
     let item, price: String?
 }
@@ -18,7 +18,7 @@ struct Menu: Codable {
 class MenuListViewController: UIViewController {
     
     let menuNum : Int = 10
-    let menus : [Menu] = [Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), Menu(id: 0, item: "김치치즈가츠동", price: "7000원")]
+    let menus : [_Menu] = [_Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), _Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), _Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), _Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), _Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), _Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), _Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), _Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), _Menu(id: 0, item: "김치치즈가츠동", price: "7000원"), _Menu(id: 0, item: "김치치즈가츠동", price: "7000원")]
     let menuImages : [String] = ["rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png", "rectangle.png"]
     
     let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))

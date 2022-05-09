@@ -47,6 +47,26 @@
 		D466009627CE38D7003CA35D /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D466009527CE38D4003CA35D /* libxml2.tbd */; };
 		D466009827CE38E4003CA35D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D466009727CE38DE003CA35D /* libsqlite3.tbd */; };
 		D466009A27CE38FC003CA35D /* DaumMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D466009927CE38F0003CA35D /* DaumMap.framework */; };
+		D46C78112829000C00DE54B9 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78092829000C00DE54B9 /* ProfileEditViewController.swift */; };
+		D46C782A2829001600DE54B9 /* MainStoreListTalbeViewCell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D46C781B2829001500DE54B9 /* MainStoreListTalbeViewCell.storyboard */; };
+		D46C782B2829001600DE54B9 /* StoreListTableViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C781C2829001500DE54B9 /* StoreListTableViewCellCollectionViewCell.swift */; };
+		D46C782C2829001600DE54B9 /* MainStoreListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C781D2829001600DE54B9 /* MainStoreListTableViewCell.swift */; };
+		D46C782D2829001600DE54B9 /* MainStoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C781E2829001600DE54B9 /* MainStoreListViewController.swift */; };
+		D46C78312829001600DE54B9 /* MainCollectionViewLongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78242829001600DE54B9 /* MainCollectionViewLongCell.swift */; };
+		D46C78322829001600DE54B9 /* MainCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78252829001600DE54B9 /* MainCollectionViewHeader.swift */; };
+		D46C78332829001600DE54B9 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78262829001600DE54B9 /* File.swift */; };
+		D46C78342829001600DE54B9 /* MainCollectionViewSmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78272829001600DE54B9 /* MainCollectionViewSmallCell.swift */; };
+		D46C78352829001600DE54B9 /* MainCollectionViewLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78282829001600DE54B9 /* MainCollectionViewLargeCell.swift */; };
+		D46C78362829001600DE54B9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78292829001600DE54B9 /* MainViewController.swift */; };
+		D46C78392829002F00DE54B9 /* StoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78372829002F00DE54B9 /* StoreInfo.swift */; };
+		D46C783A2829002F00DE54B9 /* ThemeStoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78382829002F00DE54B9 /* ThemeStoreInfo.swift */; };
+		D4CACF28282903AD000007FB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CACF27282903AD000007FB /* Colors.swift */; };
+		D4CACF3028290509000007FB /* MainMyPageButtonsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CACF2A28290509000007FB /* MainMyPageButtonsView.xib */; };
+		D4CACF3128290509000007FB /* RecentVisitStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CACF2B28290509000007FB /* RecentVisitStoreTableViewCell.swift */; };
+		D4CACF3228290509000007FB /* RecentVisitStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CACF2C28290509000007FB /* RecentVisitStoreTableViewCell.xib */; };
+		D4CACF3328290509000007FB /* MainMyPageButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CACF2D28290509000007FB /* MainMyPageButtonsView.swift */; };
+		D4CACF3428290509000007FB /* MainMyPageButtonsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CACF2E28290509000007FB /* MainMyPageButtonsStoryboard.storyboard */; };
+		D4CACF3528290509000007FB /* MainMyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CACF2F28290509000007FB /* MainMyPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +115,26 @@
 		D466009727CE38DE003CA35D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		D466009927CE38F0003CA35D /* DaumMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DaumMap.framework; sourceTree = "<group>"; };
 		D466009C27CE3947003CA35D /* Udong-Bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Udong-Bridging-header.h"; sourceTree = "<group>"; };
+		D46C78092829000C00DE54B9 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		D46C781B2829001500DE54B9 /* MainStoreListTalbeViewCell.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoreListTalbeViewCell.storyboard; sourceTree = "<group>"; };
+		D46C781C2829001500DE54B9 /* StoreListTableViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreListTableViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		D46C781D2829001600DE54B9 /* MainStoreListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainStoreListTableViewCell.swift; sourceTree = "<group>"; };
+		D46C781E2829001600DE54B9 /* MainStoreListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainStoreListViewController.swift; sourceTree = "<group>"; };
+		D46C78242829001600DE54B9 /* MainCollectionViewLongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewLongCell.swift; sourceTree = "<group>"; };
+		D46C78252829001600DE54B9 /* MainCollectionViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewHeader.swift; sourceTree = "<group>"; };
+		D46C78262829001600DE54B9 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		D46C78272829001600DE54B9 /* MainCollectionViewSmallCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewSmallCell.swift; sourceTree = "<group>"; };
+		D46C78282829001600DE54B9 /* MainCollectionViewLargeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewLargeCell.swift; sourceTree = "<group>"; };
+		D46C78292829001600DE54B9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D46C78372829002F00DE54B9 /* StoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreInfo.swift; path = ../../../../../.Trash/Udong_first/temp/Udong/Models/StoreInfo.swift; sourceTree = "<group>"; };
+		D46C78382829002F00DE54B9 /* ThemeStoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeStoreInfo.swift; path = ../../../../../.Trash/Udong_first/temp/Udong/Models/ThemeStoreInfo.swift; sourceTree = "<group>"; };
+		D4CACF27282903AD000007FB /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../../../../../.Trash/scgtemp/Udong/Options/Colors.swift; sourceTree = "<group>"; };
+		D4CACF2A28290509000007FB /* MainMyPageButtonsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMyPageButtonsView.xib; sourceTree = "<group>"; };
+		D4CACF2B28290509000007FB /* RecentVisitStoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentVisitStoreTableViewCell.swift; sourceTree = "<group>"; };
+		D4CACF2C28290509000007FB /* RecentVisitStoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecentVisitStoreTableViewCell.xib; sourceTree = "<group>"; };
+		D4CACF2D28290509000007FB /* MainMyPageButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMyPageButtonsView.swift; sourceTree = "<group>"; };
+		D4CACF2E28290509000007FB /* MainMyPageButtonsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMyPageButtonsStoryboard.storyboard; sourceTree = "<group>"; };
+		D4CACF2F28290509000007FB /* MainMyPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMyPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +242,8 @@
 		D41075C627D136DB00B0E0E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D46C78372829002F00DE54B9 /* StoreInfo.swift */,
+				D46C78382829002F00DE54B9 /* ThemeStoreInfo.swift */,
 				D41075C727D136EC00B0E0E0 /* ModelSample.swift */,
 			);
 			path = Models;
@@ -245,6 +287,7 @@
 		D448BDB527CE441D00EE5E98 /* Options */ = {
 			isa = PBXGroup;
 			children = (
+				D4CACF27282903AD000007FB /* Colors.swift */,
 				D466007227CE3403003CA35D /* Assets.xcassets */,
 			);
 			path = Options;
@@ -253,6 +296,8 @@
 		D448BDB627CE442A00EE5E98 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D46C78182829001500DE54B9 /* Main */,
+				D46C78072829000C00DE54B9 /* MyPage */,
 				47294668281AFD7A00DBF1D2 /* TabBar */,
 				47294665281AFCBE00DBF1D2 /* ReviewDetail */,
 				47294662281AFB4400DBF1D2 /* Top5Regular */,
@@ -328,6 +373,88 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
+		D46C78072829000C00DE54B9 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				D4CACF2928290509000007FB /* MainMyPage */,
+				D46C78082829000C00DE54B9 /* ProfileEdit */,
+			);
+			name = MyPage;
+			path = ../../../../../.Trash/Udong_first/temp/Udong/Resource/MyPage;
+			sourceTree = "<group>";
+		};
+		D46C78082829000C00DE54B9 /* ProfileEdit */ = {
+			isa = PBXGroup;
+			children = (
+				D46C78092829000C00DE54B9 /* ProfileEditViewController.swift */,
+			);
+			path = ProfileEdit;
+			sourceTree = "<group>";
+		};
+		D46C78182829001500DE54B9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D46C78192829001500DE54B9 /* MainTheme */,
+				D46C78222829001600DE54B9 /* Main */,
+			);
+			name = Main;
+			path = ../../../../../.Trash/Udong_first/temp/Udong/Resource/Main;
+			sourceTree = "<group>";
+		};
+		D46C78192829001500DE54B9 /* MainTheme */ = {
+			isa = PBXGroup;
+			children = (
+				D46C781A2829001500DE54B9 /* Cells */,
+				D46C781E2829001600DE54B9 /* MainStoreListViewController.swift */,
+			);
+			path = MainTheme;
+			sourceTree = "<group>";
+		};
+		D46C781A2829001500DE54B9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D46C781B2829001500DE54B9 /* MainStoreListTalbeViewCell.storyboard */,
+				D46C781C2829001500DE54B9 /* StoreListTableViewCellCollectionViewCell.swift */,
+				D46C781D2829001600DE54B9 /* MainStoreListTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D46C78222829001600DE54B9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D46C78232829001600DE54B9 /* Cells */,
+				D46C78292829001600DE54B9 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D46C78232829001600DE54B9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D46C78242829001600DE54B9 /* MainCollectionViewLongCell.swift */,
+				D46C78252829001600DE54B9 /* MainCollectionViewHeader.swift */,
+				D46C78262829001600DE54B9 /* File.swift */,
+				D46C78272829001600DE54B9 /* MainCollectionViewSmallCell.swift */,
+				D46C78282829001600DE54B9 /* MainCollectionViewLargeCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D4CACF2928290509000007FB /* MainMyPage */ = {
+			isa = PBXGroup;
+			children = (
+				D4CACF2A28290509000007FB /* MainMyPageButtonsView.xib */,
+				D4CACF2B28290509000007FB /* RecentVisitStoreTableViewCell.swift */,
+				D4CACF2C28290509000007FB /* RecentVisitStoreTableViewCell.xib */,
+				D4CACF2D28290509000007FB /* MainMyPageButtonsView.swift */,
+				D4CACF2E28290509000007FB /* MainMyPageButtonsStoryboard.storyboard */,
+				D4CACF2F28290509000007FB /* MainMyPage.swift */,
+			);
+			name = MainMyPage;
+			path = Udong/Resource/MyPage/MainMyPage;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -388,10 +515,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				47BF96FD27DC8D9C00C9C398 /* crown.png in Resources */,
+				D46C782A2829001600DE54B9 /* MainStoreListTalbeViewCell.storyboard in Resources */,
 				D466007627CE3403003CA35D /* LaunchScreen.storyboard in Resources */,
+				D4CACF3028290509000007FB /* MainMyPageButtonsView.xib in Resources */,
 				4733864C27D904AA0018A701 /* rectangle.png in Resources */,
 				D466007327CE3403003CA35D /* Assets.xcassets in Resources */,
+				D4CACF3228290509000007FB /* RecentVisitStoreTableViewCell.xib in Resources */,
 				4753CB3C27D89D4500E860B4 /* new-moon.png in Resources */,
+				D4CACF3428290509000007FB /* MainMyPageButtonsStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,27 +559,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				47E587842819A80800707531 /* ReviewDetailCollectionViewCell.swift in Sources */,
+				D4CACF3528290509000007FB /* MainMyPage.swift in Sources */,
+				D46C782B2829001600DE54B9 /* StoreListTableViewCellCollectionViewCell.swift in Sources */,
+				D46C782D2829001600DE54B9 /* MainStoreListViewController.swift in Sources */,
+				D46C78342829001600DE54B9 /* MainCollectionViewSmallCell.swift in Sources */,
+				D46C78112829000C00DE54B9 /* ProfileEditViewController.swift in Sources */,
 				D422A65927D0F27100F72755 /* APIConstants.swift in Sources */,
 				47BF970127DDDC8900C9C398 /* RecommendItemViewController.swift in Sources */,
 				47F89D7427E866BA004C8F56 /* MenuListViewController.swift in Sources */,
 				D466006A27CE3402003CA35D /* AppDelegate.swift in Sources */,
+				D46C783A2829002F00DE54B9 /* ThemeStoreInfo.swift in Sources */,
 				D466006C27CE3402003CA35D /* SceneDelegate.swift in Sources */,
 				47475AD827D34EC900A5C24D /* StoreDetailViewController.swift in Sources */,
 				47F89D7627E866C5004C8F56 /* StoreReviewListViewController.swift in Sources */,
 				4703685627D62BB200395333 /* TabBarViewController.swift in Sources */,
 				47E587822819857C00707531 /* MenuDetailCollectionViewCell.swift in Sources */,
 				476F1FB827E30280001EBC47 /* Top5DetailViewController.swift in Sources */,
+				D46C78322829001600DE54B9 /* MainCollectionViewHeader.swift in Sources */,
 				4733864627D8E3C10018A701 /* StoreImageCell.swift in Sources */,
+				D46C78352829001600DE54B9 /* MainCollectionViewLargeCell.swift in Sources */,
+				D46C78332829001600DE54B9 /* File.swift in Sources */,
 				47F683C027FF4ED50081CC9F /* Top5CollectionViewCell.swift in Sources */,
 				D41075C827D136EC00B0E0E0 /* ModelSample.swift in Sources */,
+				D4CACF3128290509000007FB /* RecentVisitStoreTableViewCell.swift in Sources */,
+				D4CACF3328290509000007FB /* MainMyPageButtonsView.swift in Sources */,
 				47F89D7227E85C94004C8F56 /* ReviewCollectionViewCell.swift in Sources */,
 				D422A65727D0F25D00F72755 /* AccountsApi.swift in Sources */,
 				4728DC2F27E250B900C9C640 /* CircleCollectionViewCell.swift in Sources */,
 				471A75F427E5CAF0007EE47C /* MenuCollectionViewCell.swift in Sources */,
 				475742C2281E45A4002AFA6E /* RecommendItemCollectionViewCell.swift in Sources */,
 				47F89D7827E870F9004C8F56 /* ReviewDetailViewController.swift in Sources */,
+				D46C782C2829001600DE54B9 /* MainStoreListTableViewCell.swift in Sources */,
+				D4CACF28282903AD000007FB /* Colors.swift in Sources */,
+				D46C78392829002F00DE54B9 /* StoreInfo.swift in Sources */,
 				4733864E27D909940018A701 /* StoreImageDetailViewController.swift in Sources */,
 				47294661281AE4BA00DBF1D2 /* TierInfoCollectionViewCell.swift in Sources */,
+				D46C78362829001600DE54B9 /* MainViewController.swift in Sources */,
+				D46C78312829001600DE54B9 /* MainCollectionViewLongCell.swift in Sources */,
 				47BF970327DDDF8800C9C398 /* StoreInfoCollectionViewCell.swift in Sources */,
 				471A75F227E5C4D3007EE47C /* test.swift in Sources */,
 				47294664281AFB8A00DBF1D2 /* UserReviewListViewController.swift in Sources */,
@@ -619,7 +766,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pccommen.Udong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Headers/Udong-Bridging-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -656,7 +803,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pccommen.Udong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Headers/Udong-Bridging-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

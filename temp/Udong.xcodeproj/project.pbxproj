@@ -379,8 +379,7 @@
 				D4CACF2928290509000007FB /* MainMyPage */,
 				D46C78082829000C00DE54B9 /* ProfileEdit */,
 			);
-			name = MyPage;
-			path = ../../../../../.Trash/Udong_first/temp/Udong/Resource/MyPage;
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		D46C78082829000C00DE54B9 /* ProfileEdit */ = {
@@ -397,8 +396,7 @@
 				D46C78192829001500DE54B9 /* MainTheme */,
 				D46C78222829001600DE54B9 /* Main */,
 			);
-			name = Main;
-			path = ../../../../../.Trash/Udong_first/temp/Udong/Resource/Main;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		D46C78192829001500DE54B9 /* MainTheme */ = {

@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
-        self.window?.rootViewController = ProfileEditViewController()
+        self.window?.rootViewController = MyFavoriteStoreViewController()
         self.window?.backgroundColor = .white
         self.window?.makeKeyAndVisible()
     }

@@ -37,6 +37,9 @@
 		D422A65927D0F27100F72755 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422A65827D0F27100F72755 /* APIConstants.swift */; };
 		D456D0C2282A441F0018080D /* MyFavoriteStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0C1282A441F0018080D /* MyFavoriteStoreViewController.swift */; };
 		D456D0C4282A4B900018080D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0C3282A4B900018080D /* Colors.swift */; };
+		D456D0C6282A4DFE0018080D /* MyFavortieListPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0C5282A4DFD0018080D /* MyFavortieListPageViewController.swift */; };
+		D456D0C8282A50AC0018080D /* MyWishStoreListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0C7282A50AC0018080D /* MyWishStoreListTableViewController.swift */; };
+		D456D0CA282A50BA0018080D /* MyCustomStoreListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0C9282A50BA0018080D /* MyCustomStoreListTableViewController.swift */; };
 		D466006A27CE3402003CA35D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466006927CE3402003CA35D /* AppDelegate.swift */; };
 		D466006C27CE3402003CA35D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466006B27CE3402003CA35D /* SceneDelegate.swift */; };
 		D466007327CE3403003CA35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D466007227CE3403003CA35D /* Assets.xcassets */; };
@@ -102,6 +105,9 @@
 		D422A65827D0F27100F72755 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		D456D0C1282A441F0018080D /* MyFavoriteStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteStoreViewController.swift; sourceTree = "<group>"; };
 		D456D0C3282A4B900018080D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D456D0C5282A4DFD0018080D /* MyFavortieListPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavortieListPageViewController.swift; sourceTree = "<group>"; };
+		D456D0C7282A50AC0018080D /* MyWishStoreListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWishStoreListTableViewController.swift; sourceTree = "<group>"; };
+		D456D0C9282A50BA0018080D /* MyCustomStoreListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomStoreListTableViewController.swift; sourceTree = "<group>"; };
 		D466006627CE3402003CA35D /* Udong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D466006927CE3402003CA35D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D466006B27CE3402003CA35D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -320,9 +326,20 @@
 		D456D0C0282A43FF0018080D /* MyFavoriteStore */ = {
 			isa = PBXGroup;
 			children = (
+				D456D0CB282A5C060018080D /* Cells */,
 				D456D0C1282A441F0018080D /* MyFavoriteStoreViewController.swift */,
+				D456D0C5282A4DFD0018080D /* MyFavortieListPageViewController.swift */,
+				D456D0C7282A50AC0018080D /* MyWishStoreListTableViewController.swift */,
+				D456D0C9282A50BA0018080D /* MyCustomStoreListTableViewController.swift */,
 			);
 			path = MyFavoriteStore;
+			sourceTree = "<group>";
+		};
+		D456D0CB282A5C060018080D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		D466005D27CE3402003CA35D = {
@@ -573,7 +590,9 @@
 				D422A65927D0F27100F72755 /* APIConstants.swift in Sources */,
 				47BF970127DDDC8900C9C398 /* RecommendItemViewController.swift in Sources */,
 				47F89D7427E866BA004C8F56 /* MenuListViewController.swift in Sources */,
+				D456D0CA282A50BA0018080D /* MyCustomStoreListTableViewController.swift in Sources */,
 				D466006A27CE3402003CA35D /* AppDelegate.swift in Sources */,
+				D456D0C6282A4DFE0018080D /* MyFavortieListPageViewController.swift in Sources */,
 				D46C783A2829002F00DE54B9 /* ThemeStoreInfo.swift in Sources */,
 				D466006C27CE3402003CA35D /* SceneDelegate.swift in Sources */,
 				47475AD827D34EC900A5C24D /* StoreDetailViewController.swift in Sources */,
@@ -591,6 +610,7 @@
 				47F89D7227E85C94004C8F56 /* ReviewCollectionViewCell.swift in Sources */,
 				D422A65727D0F25D00F72755 /* AccountsApi.swift in Sources */,
 				4728DC2F27E250B900C9C640 /* CircleCollectionViewCell.swift in Sources */,
+				D456D0C8282A50AC0018080D /* MyWishStoreListTableViewController.swift in Sources */,
 				471A75F427E5CAF0007EE47C /* MenuCollectionViewCell.swift in Sources */,
 				475742C2281E45A4002AFA6E /* RecommendItemCollectionViewCell.swift in Sources */,
 				47F89D7827E870F9004C8F56 /* ReviewDetailViewController.swift in Sources */,

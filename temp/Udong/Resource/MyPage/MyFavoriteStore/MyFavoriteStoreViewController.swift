@@ -51,6 +51,8 @@ class MyFavoriteStoreViewController: UIViewController {
     private func displaySetting(){
         view.addSubview(wishButton)
         view.addSubview(customButton)
+        customButton.addTarget(self, action: #selector(tapFirstButton(_:)), for: .touchUpInside)
+        wishButton.addTarget(self, action: #selector(tapSecondButton(_:)), for: .touchUpInside)
         customButton.snp.makeConstraints{
             $0.leading.equalToSuperview()
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -63,6 +65,16 @@ class MyFavoriteStoreViewController: UIViewController {
             $0.width.equalTo(view.bounds.width * 0.5)
             $0.height.equalTo(40)
         }
+    }
+    
+    @objc private func tapFirstButton(_ : Any){
+        print("------------")
+        pvc.setViewcontrollersFromIndex(index: 0)
+        currentIdx = 0
+    }
+    @objc private func tapSecondButton(_ : Any){
+        pvc.setViewcontrollersFromIndex(index: 1)
+        currentIdx = 1
     }
     
     private func changBtn(){

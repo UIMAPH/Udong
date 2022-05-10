@@ -34,5 +34,7 @@ class RecentVisitStoreTableViewCell: UITableViewCell {
         storeImageView.layer.cornerRadius = 30
     }
     
+    override func prepareForReuse() {
+    }
     
 }

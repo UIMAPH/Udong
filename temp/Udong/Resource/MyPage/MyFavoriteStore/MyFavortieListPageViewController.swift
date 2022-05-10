@@ -40,7 +40,11 @@ class MyFavortieListPageViewController: UIPageViewController, UIPageViewControll
     
     func setViewcontrollersFromIndex(index : Int){
         if index < 0 && index >= viewsList.count {return }
-        self.setViewControllers([viewsList[index]], direction: .forward, animated: true, completion: nil)
+        if (index == 0){
+            self.setViewControllers([viewsList[index]], direction: .reverse, animated: true, completion: nil)
+        }else{
+            self.setViewControllers([viewsList[index]], direction: .forward, animated: true, completion: nil)
+        }
         completeHandler?(currentIndex)
     }
     

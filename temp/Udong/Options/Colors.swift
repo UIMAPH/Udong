@@ -10,6 +10,8 @@ import UIKit
 
 extension UIColor {
     static let mainblue = UIColor(red: 0.6588, green: 0.8863, blue: 1, alpha: 1.0)
+    static let backgray = UIColor(red: 0.95, green: 0.95, blue: 0.97, alpha: 1.00)
+    
     
     convenience init(red: Int, green: Int, blue: Int) {
            assert(red >= 0 && red <= 255, "Invalid red component")

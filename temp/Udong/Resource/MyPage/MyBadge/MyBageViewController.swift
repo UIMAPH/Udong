@@ -81,9 +81,9 @@ extension MyBadgeViewController: UICollectionViewDelegate, UICollectionViewDeleg
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if(collectionView == allBadgeCollectionView){
-            return UIEdgeInsets(top: 30, left: (view.frame.width - collectionViewLayout.)/2 , bottom: 15, right: (view.frame.width - 195)/2 )
-        }
+//        if(collectionView == allBadgeCollectionView){
+//            return UIEdgeInsets(top: 30, left: (view.frame.width - 195)/2, bottom: 15, right: (view.frame.width - 195)/2 )
+//        }
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

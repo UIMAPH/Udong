@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="QnASectionTableViewCell" customModule="Udong" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ard-JE-GSM">
+                        <rect key="frame" x="14" y="13" width="19" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="19" id="aSp-XD-vrQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="박병준은 왜 잘생겼죠?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYX-KR-xnn">
+                        <rect key="frame" x="42" y="13" width="176" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bPE-iG-1IY">
+                        <rect key="frame" x="362.5" y="15" width="18.5" height="20.5"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18.5" id="puh-rq-pBz"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ard-JE-GSM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="174-Uf-jZN"/>
+                    <constraint firstAttribute="trailing" secondItem="bPE-iG-1IY" secondAttribute="trailing" constant="9" id="5TM-Ig-FBw"/>
+                    <constraint firstAttribute="bottom" secondItem="BYX-KR-xnn" secondAttribute="bottom" constant="13" id="Dwa-wL-yH7"/>
+                    <constraint firstAttribute="bottom" secondItem="bPE-iG-1IY" secondAttribute="bottom" constant="13" id="J5H-J1-Kgd"/>
+                    <constraint firstItem="ard-JE-GSM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="MtG-Mv-XHZ"/>
+                    <constraint firstItem="BYX-KR-xnn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="Ncn-Q2-bAR"/>
+                    <constraint firstAttribute="bottom" secondItem="ard-JE-GSM" secondAttribute="bottom" constant="13" id="gEQ-op-UNh"/>
+                    <constraint firstItem="BYX-KR-xnn" firstAttribute="leading" secondItem="ard-JE-GSM" secondAttribute="trailing" constant="9" id="rX4-wf-7Rs"/>
+                    <constraint firstItem="bPE-iG-1IY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="zAQ-t3-7gA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="checkImageView" destination="bPE-iG-1IY" id="3Df-hc-M3h"/>
+                <outlet property="questionLabel" destination="BYX-KR-xnn" id="Tk2-ST-ZZv"/>
+            </connections>
+            <point key="canvasLocation" x="188.40579710144928" y="95.758928571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+    </resources>
+</document>

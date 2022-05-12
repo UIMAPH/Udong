@@ -43,7 +43,6 @@
 		D456D0D2282A658A0018080D /* MyCustomStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0D0282A658A0018080D /* MyCustomStoreTableViewCell.swift */; };
 		D456D0D3282A658A0018080D /* MyCustomStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D456D0D1282A658A0018080D /* MyCustomStoreTableViewCell.xib */; };
 		D456D0D7282A836E0018080D /* MyBageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0D6282A836E0018080D /* MyBageViewController.swift */; };
-		D456D0DA282A86420018080D /* MyBadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0D9282A86420018080D /* MyBadgeCollectionViewCell.swift */; };
 		D456D0DD282B8EFD0018080D /* MyReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0DC282B8EFD0018080D /* MyReviewsViewController.swift */; };
 		D456D0E3282B92440018080D /* MyReivewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0E1282B92440018080D /* MyReivewsTableViewCell.swift */; };
 		D456D0E4282B92440018080D /* MyReivewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D456D0E2282B92440018080D /* MyReivewsTableViewCell.xib */; };
@@ -54,6 +53,9 @@
 		D456D0F0282BA0B10018080D /* QnARowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D456D0EE282BA0B10018080D /* QnARowTableViewCell.xib */; };
 		D456D0F6282BAE910018080D /* MemeberSecessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0F4282BAE910018080D /* MemeberSecessionViewController.swift */; };
 		D456D0F7282BAE910018080D /* MemeberSecessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D456D0F5282BAE910018080D /* MemeberSecessionViewController.xib */; };
+		D456D13D282D324A0018080D /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D13B282D324A0018080D /* BadgeCollectionViewCell.swift */; };
+		D456D13E282D324A0018080D /* BadgeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D456D13C282D324A0018080D /* BadgeCollectionViewCell.xib */; };
+		D456D141282D384C0018080D /*  CertificationTownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D140282D384B0018080D /*  CertificationTownViewController.swift */; };
 		D466006A27CE3402003CA35D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466006927CE3402003CA35D /* AppDelegate.swift */; };
 		D466006C27CE3402003CA35D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466006B27CE3402003CA35D /* SceneDelegate.swift */; };
 		D466007327CE3403003CA35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D466007227CE3403003CA35D /* Assets.xcassets */; };
@@ -125,7 +127,6 @@
 		D456D0D0282A658A0018080D /* MyCustomStoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomStoreTableViewCell.swift; sourceTree = "<group>"; };
 		D456D0D1282A658A0018080D /* MyCustomStoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomStoreTableViewCell.xib; sourceTree = "<group>"; };
 		D456D0D6282A836E0018080D /* MyBageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBageViewController.swift; sourceTree = "<group>"; };
-		D456D0D9282A86420018080D /* MyBadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D456D0DC282B8EFD0018080D /* MyReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewsViewController.swift; sourceTree = "<group>"; };
 		D456D0E1282B92440018080D /* MyReivewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReivewsTableViewCell.swift; sourceTree = "<group>"; };
 		D456D0E2282B92440018080D /* MyReivewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyReivewsTableViewCell.xib; sourceTree = "<group>"; };
@@ -136,6 +137,9 @@
 		D456D0EE282BA0B10018080D /* QnARowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QnARowTableViewCell.xib; sourceTree = "<group>"; };
 		D456D0F4282BAE910018080D /* MemeberSecessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeberSecessionViewController.swift; sourceTree = "<group>"; };
 		D456D0F5282BAE910018080D /* MemeberSecessionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemeberSecessionViewController.xib; sourceTree = "<group>"; };
+		D456D13B282D324A0018080D /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D456D13C282D324A0018080D /* BadgeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeCollectionViewCell.xib; sourceTree = "<group>"; };
+		D456D140282D384B0018080D /*  CertificationTownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " CertificationTownViewController.swift"; sourceTree = "<group>"; };
 		D466006627CE3402003CA35D /* Udong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D466006927CE3402003CA35D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D466006B27CE3402003CA35D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -392,7 +396,8 @@
 		D456D0D8282A86200018080D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				D456D0D9282A86420018080D /* MyBadgeCollectionViewCell.swift */,
+				D456D13B282D324A0018080D /* BadgeCollectionViewCell.swift */,
+				D456D13C282D324A0018080D /* BadgeCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -442,6 +447,14 @@
 				D456D0F5282BAE910018080D /* MemeberSecessionViewController.xib */,
 			);
 			path = MemberSecession;
+			sourceTree = "<group>";
+		};
+		D456D13F282D38160018080D /*  CertificationTown */ = {
+			isa = PBXGroup;
+			children = (
+				D456D140282D384B0018080D /*  CertificationTownViewController.swift */,
+			);
+			path = " CertificationTown";
 			sourceTree = "<group>";
 		};
 		D466005D27CE3402003CA35D = {
@@ -503,6 +516,7 @@
 		D46C78072829000C00DE54B9 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				D456D13F282D38160018080D /*  CertificationTown */,
 				D456D0F1282BACD80018080D /* MemberSecession */,
 				D456D0E5282B9E460018080D /* QnA */,
 				D456D0DB282B8EE70018080D /* MyReviews */,
@@ -651,6 +665,7 @@
 				D466007627CE3403003CA35D /* LaunchScreen.storyboard in Resources */,
 				D4CACF3028290509000007FB /* MainMyPageButtonsView.xib in Resources */,
 				D456D0F0282BA0B10018080D /* QnARowTableViewCell.xib in Resources */,
+				D456D13E282D324A0018080D /* BadgeCollectionViewCell.xib in Resources */,
 				4733864C27D904AA0018A701 /* rectangle.png in Resources */,
 				D456D0F7282BAE910018080D /* MemeberSecessionViewController.xib in Resources */,
 				D466007327CE3403003CA35D /* Assets.xcassets in Resources */,
@@ -695,6 +710,7 @@
 				47E587842819A80800707531 /* ReviewDetailCollectionViewCell.swift in Sources */,
 				D4CACF3528290509000007FB /* MainMyPage.swift in Sources */,
 				D46C782B2829001600DE54B9 /* StoreListTableViewCellCollectionViewCell.swift in Sources */,
+				D456D141282D384C0018080D /*  CertificationTownViewController.swift in Sources */,
 				D456D0D7282A836E0018080D /* MyBageViewController.swift in Sources */,
 				D46C782D2829001600DE54B9 /* MainStoreListViewController.swift in Sources */,
 				D46C78342829001600DE54B9 /* MainCollectionViewSmallCell.swift in Sources */,
@@ -722,7 +738,6 @@
 				D456D0F6282BAE910018080D /* MemeberSecessionViewController.swift in Sources */,
 				D4CACF3128290509000007FB /* RecentVisitStoreTableViewCell.swift in Sources */,
 				D456D0EB282BA0A40018080D /* QnASectionTableViewCell.swift in Sources */,
-				D456D0DA282A86420018080D /* MyBadgeCollectionViewCell.swift in Sources */,
 				D4CACF3328290509000007FB /* MainMyPageButtonsView.swift in Sources */,
 				D456D0EF282BA0B10018080D /* QnARowTableViewCell.swift in Sources */,
 				47F89D7227E85C94004C8F56 /* ReviewCollectionViewCell.swift in Sources */,
@@ -739,6 +754,7 @@
 				4733864E27D909940018A701 /* StoreImageDetailViewController.swift in Sources */,
 				D456D0C2282A441F0018080D /* MyFavoriteStoreViewController.swift in Sources */,
 				D456D0D2282A658A0018080D /* MyCustomStoreTableViewCell.swift in Sources */,
+				D456D13D282D324A0018080D /* BadgeCollectionViewCell.swift in Sources */,
 				47294661281AE4BA00DBF1D2 /* TierInfoCollectionViewCell.swift in Sources */,
 				D46C78362829001600DE54B9 /* MainViewController.swift in Sources */,
 				D46C78312829001600DE54B9 /* MainCollectionViewLongCell.swift in Sources */,

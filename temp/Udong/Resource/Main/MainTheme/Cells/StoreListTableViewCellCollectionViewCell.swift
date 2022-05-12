@@ -11,7 +11,7 @@ import SnapKit
 class StoreListTableViewCellCollectionViewCell: UICollectionViewCell {
     
     var imageView: UIImageView = {
-        let image = UIImage(named: "temp")
+        let image = UIImage(named: "sample")
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleToFill
         

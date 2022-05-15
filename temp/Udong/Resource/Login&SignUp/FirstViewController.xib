@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstViewController" customModule="Udong" customModuleProvider="target">
+            <connections>
+                <outlet property="LoginButton" destination="tm7-f6-N52" id="diR-p8-eqQ"/>
+                <outlet property="SignUpButton" destination="eGj-Je-uLC" id="Ery-Xz-2dE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="gKa-2x-B2N">
+                    <rect key="frame" x="112" y="159" width="190" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="FVF-Uo-iQO"/>
+                        <constraint firstAttribute="width" constant="190" id="RrG-9d-k7D"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우리 동네를 소개합니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb1-sA-9uW">
+                    <rect key="frame" x="97" y="359" width="220" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="RQc-8g-1MQ"/>
+                        <constraint firstAttribute="width" constant="220" id="gsf-aI-540"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8u-B7-yLZ">
+                    <rect key="frame" x="52" y="429" width="310" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="310" id="HWJ-8B-43p"/>
+                        <constraint firstAttribute="height" constant="35" id="KMX-bO-41I"/>
+                    </constraints>
+                    <string key="text">우리동네 사람들이 어디를 많이 가는지 궁금하지 않나요?
+지금 시작해보세요!</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGj-Je-uLC">
+                    <rect key="frame" x="52" y="745" width="310" height="45"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="우리 동네로 들어가기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aex-Yf-EpK">
+                            <rect key="frame" x="56" y="50" width="197" height="29"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    <constraints>
+                        <constraint firstItem="aex-Yf-EpK" firstAttribute="centerY" secondItem="eGj-Je-uLC" secondAttribute="centerY" id="5d1-2l-HWR"/>
+                        <constraint firstAttribute="width" constant="310" id="Hv8-jy-9LY"/>
+                        <constraint firstItem="aex-Yf-EpK" firstAttribute="centerX" secondItem="eGj-Je-uLC" secondAttribute="centerX" id="Toj-db-pRO"/>
+                        <constraint firstAttribute="height" constant="45" id="di6-3o-aYa"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-Hk-6oc">
+                    <rect key="frame" x="114" y="808" width="186" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이미 계정이 있으시군요! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbX-5n-A4o">
+                            <rect key="frame" x="0.0" y="0.0" width="127.5" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tm7-f6-N52">
+                            <rect key="frame" x="127.5" y="0.0" width="58.5" height="30"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="로그인">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="AppleSDGothicNeo-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="186" id="pQ9-FA-wr5"/>
+                        <constraint firstAttribute="height" constant="30" id="rKz-5y-yhU"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OSN-Hk-6oc" secondAttribute="bottom" constant="24" id="0fk-QJ-vbC"/>
+                <constraint firstItem="OSN-Hk-6oc" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="1zP-1i-Yjf"/>
+                <constraint firstItem="gKa-2x-B2N" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="2wl-Xb-AtS"/>
+                <constraint firstItem="n8u-B7-yLZ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="AEV-Mb-gvP"/>
+                <constraint firstItem="eGj-Je-uLC" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="ECO-i5-Ldr"/>
+                <constraint firstItem="n8u-B7-yLZ" firstAttribute="top" secondItem="cb1-sA-9uW" secondAttribute="bottom" constant="40" id="Tmv-HZ-SfO"/>
+                <constraint firstItem="cb1-sA-9uW" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="UFl-56-Bwd"/>
+                <constraint firstItem="cb1-sA-9uW" firstAttribute="top" secondItem="gKa-2x-B2N" secondAttribute="bottom" constant="50" id="ewl-af-5x1"/>
+                <constraint firstItem="OSN-Hk-6oc" firstAttribute="top" secondItem="eGj-Je-uLC" secondAttribute="bottom" constant="18" id="vWc-gf-tPs"/>
+                <constraint firstItem="gKa-2x-B2N" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="115" id="zZs-oa-lX6"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="AppleLogo" width="720" height="755"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

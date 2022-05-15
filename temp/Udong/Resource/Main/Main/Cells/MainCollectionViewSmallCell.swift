@@ -10,7 +10,7 @@ import SnapKit
 
 class MainCollectionViewSmallCell: UICollectionViewCell {
    
-    var storeInfo: StoreInfo?
+    var storeInfo: NetkResponse<DataClass>?
     lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.text = self.storeInfo?.data?.storeName ?? "Error"

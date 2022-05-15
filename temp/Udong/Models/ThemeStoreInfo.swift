@@ -5,12 +5,6 @@
 
 import Foundation
 
-// MARK: - StoreInfo
-struct ThemeStoreInfo: Codable {
-    let success: Bool?
-    let data: DataStoreArr?
-    let error: Bool?
-}
 
 // MARK: - DataClass
 struct DataStoreArr: Codable {

@@ -5,13 +5,6 @@
 
 import Foundation
 
-// MARK: - StoreInfo
-struct StoreInfo: Codable {
-    let success: Bool?
-    var data: DataClass?
-    let error: Bool?
-}
-
 // MARK: - DataClass
 struct DataClass: Codable {
     let id: Int?

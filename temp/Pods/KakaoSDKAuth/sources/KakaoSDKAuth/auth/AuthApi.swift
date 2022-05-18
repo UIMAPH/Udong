@@ -21,7 +21,7 @@ final public class AuthApi {
     
     /// 간편하게 API를 호출할 수 있도록 제공되는 공용 싱글톤 객체입니다.
     public static let shared = AuthApi()
-    
+    let restAPIKey = "16891297e4d22f1b77bfd94aff2f528e"
     // MARK: Methods
     
     /// 카카오톡 으로부터 리다이렉트 된 URL 인지 체크합니다.
@@ -75,7 +75,7 @@ final public class AuthApi {
         API.responseData(.post,
                                 Urls.compose(.Kauth, path:Paths.authToken),
                                 parameters: ["grant_type":"authorization_code",
-                                             "client_id":try! KakaoSDK.shared.appKey(),
+                                             "client_id": try! KakaoSDK.shared.appKey(),
                                              "redirect_uri":redirectUri,
                                              "code":code,
                                              "code_verifier":codeVerifier,
@@ -87,7 +87,7 @@ final public class AuthApi {
                                         completion(nil, error)
                                         return
                                     }
-                                    
+
                                     if let data = data {
                                         if let oauthToken = try? SdkJSONDecoder.custom.decode(OAuthToken.self, from: data) {
                                             AUTH.tokenManager.setToken(oauthToken)

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class MainStoreListViewController: UIViewController {
+class MainStoreListViewController: UIViewController{
     
     lazy var storeMapView: MTMapView = {
         let storeMapView = MTMapView()
@@ -63,6 +63,10 @@ class MainStoreListViewController: UIViewController {
     private func settingMapView(){
         storeScrollView.addSubview(storeMapView)
         storeMapView.translatesAutoresizingMaskIntoConstraints = false
+        storeMapView.delegate = self
+        print("---------------------------------")
+        print(storeMapView.poiItems)
+        print("---------------------------------")
         storeMapView.snp.makeConstraints{
             $0.width.equalToSuperview()
             $0.top.equalToSuperview()
@@ -99,6 +103,7 @@ extension MainStoreListViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainStoreListTableViewCell", for: indexPath) as? MainStoreListTableViewCell else {return UITableViewCell()}
+        
         return cell
     }
     
@@ -119,7 +124,6 @@ extension MainStoreListViewController: UIScrollViewDelegate {
                     $0.height.equalTo(storeMapView.frame.height + addHeight)
                 }
             }
-            print(scrollView.contentOffset.y)
             //scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         } else {
             var addHeight = scrollView.contentOffset.y / 4
@@ -128,7 +132,10 @@ extension MainStoreListViewController: UIScrollViewDelegate {
                     $0.height.equalTo(storeMapView.frame.height - addHeight)
                 }
             }
-            print(scrollView.contentOffset.y)
+           
         }
     }
+}
+
+extension MainStoreListViewController: MTMapViewDelegate{
 }

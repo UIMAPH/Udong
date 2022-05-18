@@ -89,6 +89,9 @@
                                     </fragment>
                                 </attributedString>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="tapLoginButton:" destination="-1" eventType="touchUpInside" id="wgT-Py-IBS"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

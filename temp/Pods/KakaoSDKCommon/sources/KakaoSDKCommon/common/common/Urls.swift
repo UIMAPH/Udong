@@ -93,6 +93,7 @@ public enum HostType {
 public class Paths {
     //kauth
     public static let authAuthorize = "/oauth/authorize"
+    public static let temp = "/oauth/authorize?client_id=16891297e4d22f1b77bfd94aff2f528e&redirect_uri=" + KakaoSDK.shared.redirectUri() + "&response_type=code"
     public static let authToken = "/oauth/token"
     public static let authAgt = "/api/agt"
     

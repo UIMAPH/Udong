@@ -261,10 +261,11 @@ public class AuthController {
             }
             
             SdkLog.d("callback url: \(callbackUrl)")
+
             
             let parseResult = callbackUrl.oauthResult()
             if let code = parseResult.code {
-                SdkLog.i("code:\n \(String(describing: code))\n\n" )
+                SdkLog.i("cutechangcode:\n \(String(describing: code))\n\n" )
                 
                 AuthApi.shared.token(code: code, codeVerifier: self?.codeVerifier) { (token, error) in
                     if let error = error {
@@ -294,7 +295,7 @@ public class AuthController {
                                              channelPublicIds: channelPublicIds,
                                              serviceTerms: serviceTerms,
                                              loginHint: loginHint)
-        
+
         var url: URL? = nil
         if let accountParameters = accountParameters, !accountParameters.isEmpty {
             for (key, value) in accountParameters {

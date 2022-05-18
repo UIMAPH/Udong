@@ -27,7 +27,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
-        self.window?.rootViewController = UINavigationController(rootViewController: FirstViewController())
+        if KeyChain.load(key: "token") != nil {
+            self.window?.rootViewController = UINavigationController(rootViewController: MainMyPageViewController())
+        }
+        else {
+            self.window?.rootViewController = UINavigationController(rootViewController: FirstViewController())
+        }
         self.window?.backgroundColor = .white
         self.window?.makeKeyAndVisible()
     }

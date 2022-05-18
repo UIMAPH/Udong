@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="225" id="KGk-i7-Jjw" customClass="SixButtonTableViewCell" customModule="Udong" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="225"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="225"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zW-3d-Zju">
+                        <rect key="frame" x="41" y="19" width="89" height="80"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="1"/>
+                        <connections>
+                            <action selector="tapProfileEdit:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HYW-b4-jMW"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8KA-tj-DMi">
+                        <rect key="frame" x="265.5" y="114.5" width="89" height="79"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="6"/>
+                        <connections>
+                            <action selector="tapSetting:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lgu-a2-jQG"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPU-bk-qi9">
+                        <rect key="frame" x="28.5" y="102" width="114" height="104"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="4"/>
+                        <connections>
+                            <action selector="tapCertificationTown:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="abm-vI-UmF"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RL3-Oi-uhm">
+                        <rect key="frame" x="143" y="12" width="104" height="94"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="2"/>
+                        <connections>
+                            <action selector="tapMyStore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JEo-xI-KBo"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdD-2Y-5OZ">
+                        <rect key="frame" x="253" y="26" width="114" height="67"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="3"/>
+                        <connections>
+                            <action selector="tapMyBadge:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1P0-vG-bjQ"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="프로필 편집" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvB-8F-PKl">
+                        <rect key="frame" x="62" y="102" width="47" height="12"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNR-ua-w8o">
+                        <rect key="frame" x="301" y="201" width="18" height="12"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="나의 리뷰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baV-m1-4T3">
+                        <rect key="frame" x="176" y="196" width="38" height="12"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동네 인증" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BN3-Ns-c9c">
+                        <rect key="frame" x="66.5" y="201" width="38" height="12"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="내 뱃지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONA-Ps-C2t">
+                        <rect key="frame" x="295.5" y="102" width="29" height="12"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="내 단골 가게" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siU-Ei-OmR">
+                        <rect key="frame" x="170.5" y="102" width="49" height="12"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbr-fw-Yjy">
+                        <rect key="frame" x="153" y="117" width="84" height="74"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="5"/>
+                        <connections>
+                            <action selector="tapMyReview:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oEP-Wu-zfc"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="VPU-bk-qi9" firstAttribute="centerX" secondItem="2zW-3d-Zju" secondAttribute="centerX" id="216-pJ-ZRN"/>
+                    <constraint firstItem="2zW-3d-Zju" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="41" id="CAi-40-BC7"/>
+                    <constraint firstItem="ONA-Ps-C2t" firstAttribute="centerY" secondItem="siU-Ei-OmR" secondAttribute="centerY" id="Cfs-3G-Sie"/>
+                    <constraint firstItem="2zW-3d-Zju" firstAttribute="centerY" secondItem="RL3-Oi-uhm" secondAttribute="centerY" id="FDN-Wc-mj2"/>
+                    <constraint firstItem="RL3-Oi-uhm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Gc8-9O-08C"/>
+                    <constraint firstItem="BN3-Ns-c9c" firstAttribute="baseline" secondItem="hNR-ua-w8o" secondAttribute="baseline" id="HHm-1a-ITc"/>
+                    <constraint firstItem="cdD-2Y-5OZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="HVr-xz-zPu"/>
+                    <constraint firstItem="tbr-fw-Yjy" firstAttribute="top" secondItem="siU-Ei-OmR" secondAttribute="bottom" constant="3" id="Hhy-lZ-ksI"/>
+                    <constraint firstItem="baV-m1-4T3" firstAttribute="centerX" secondItem="tbr-fw-Yjy" secondAttribute="centerX" id="I8F-so-yhn"/>
+                    <constraint firstItem="BN3-Ns-c9c" firstAttribute="centerX" secondItem="tvB-8F-PKl" secondAttribute="centerX" id="JIY-9c-nae"/>
+                    <constraint firstItem="cdD-2Y-5OZ" firstAttribute="centerY" secondItem="RL3-Oi-uhm" secondAttribute="centerY" id="Jp9-hs-6aC"/>
+                    <constraint firstItem="BN3-Ns-c9c" firstAttribute="top" secondItem="tvB-8F-PKl" secondAttribute="bottom" constant="82" id="KRD-sU-2hD"/>
+                    <constraint firstItem="RL3-Oi-uhm" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ShX-MB-YFW"/>
+                    <constraint firstItem="siU-Ei-OmR" firstAttribute="top" secondItem="RL3-Oi-uhm" secondAttribute="bottom" constant="-6" id="UyX-dq-n6f"/>
+                    <constraint firstItem="2zW-3d-Zju" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="XqK-Td-Ziq"/>
+                    <constraint firstItem="BN3-Ns-c9c" firstAttribute="centerX" secondItem="VPU-bk-qi9" secondAttribute="centerX" id="Ybj-cY-TAm"/>
+                    <constraint firstItem="cdD-2Y-5OZ" firstAttribute="leading" secondItem="RL3-Oi-uhm" secondAttribute="trailing" constant="6" id="c19-RD-wDR"/>
+                    <constraint firstItem="VPU-bk-qi9" firstAttribute="centerY" secondItem="tbr-fw-Yjy" secondAttribute="centerY" id="e0f-kc-z8F"/>
+                    <constraint firstItem="8KA-tj-DMi" firstAttribute="centerY" secondItem="tbr-fw-Yjy" secondAttribute="centerY" id="eJ7-Jz-AdU"/>
+                    <constraint firstItem="siU-Ei-OmR" firstAttribute="top" secondItem="RL3-Oi-uhm" secondAttribute="bottom" constant="1" id="eYl-0b-DJa"/>
+                    <constraint firstItem="baV-m1-4T3" firstAttribute="top" secondItem="tbr-fw-Yjy" secondAttribute="bottom" constant="10" id="fqY-jB-IXU"/>
+                    <constraint firstItem="hNR-ua-w8o" firstAttribute="centerX" secondItem="cdD-2Y-5OZ" secondAttribute="centerX" id="gtm-1C-oJH"/>
+                    <constraint firstItem="8KA-tj-DMi" firstAttribute="centerX" secondItem="cdD-2Y-5OZ" secondAttribute="centerX" id="huG-f2-ldh"/>
+                    <constraint firstItem="siU-Ei-OmR" firstAttribute="centerX" secondItem="RL3-Oi-uhm" secondAttribute="centerX" id="jh1-jN-UmA"/>
+                    <constraint firstItem="ONA-Ps-C2t" firstAttribute="centerX" secondItem="cdD-2Y-5OZ" secondAttribute="centerX" id="lG7-9R-upk"/>
+                    <constraint firstItem="BN3-Ns-c9c" firstAttribute="baseline" secondItem="baV-m1-4T3" secondAttribute="baseline" id="rOd-nT-KQb"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="baV-m1-4T3" secondAttribute="bottom" constant="1" id="w3Y-Th-sfB"/>
+                    <constraint firstItem="tbr-fw-Yjy" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="wAs-Na-O4E"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="188.40579710144928" y="142.96875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="1" width="65" height="65"/>
+        <image name="2" width="80" height="80"/>
+        <image name="3" width="90" height="90"/>
+        <image name="4" width="90" height="90"/>
+        <image name="5" width="60" height="60"/>
+        <image name="6" width="65" height="65"/>
+    </resources>
+</document>

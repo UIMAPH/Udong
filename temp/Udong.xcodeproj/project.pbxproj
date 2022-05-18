@@ -35,6 +35,8 @@
 		D41075C827D136EC00B0E0E0 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41075C727D136EC00B0E0E0 /* CommonModel.swift */; };
 		D422A65727D0F25D00F72755 /* AccountsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422A65627D0F25D00F72755 /* AccountsApi.swift */; };
 		D422A65927D0F27100F72755 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422A65827D0F27100F72755 /* APIConstants.swift */; };
+		D42EB1422833626A0086FA68 /* SixButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42EB1402833626A0086FA68 /* SixButtonTableViewCell.swift */; };
+		D42EB1432833626A0086FA68 /* SixButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42EB1412833626A0086FA68 /* SixButtonTableViewCell.xib */; };
 		D44B888528311C6E0072EB39 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B888328311C6E0072EB39 /* FirstViewController.swift */; };
 		D44B888628311C6E0072EB39 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44B888428311C6E0072EB39 /* FirstViewController.xib */; };
 		D456D0C2282A441F0018080D /* MyFavoriteStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456D0C1282A441F0018080D /* MyFavoriteStoreViewController.swift */; };
@@ -82,12 +84,16 @@
 		D46C78362829001600DE54B9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78292829001600DE54B9 /* MainViewController.swift */; };
 		D46C78392829002F00DE54B9 /* StoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78372829002F00DE54B9 /* StoreInfo.swift */; };
 		D46C783A2829002F00DE54B9 /* ThemeStoreInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46C78382829002F00DE54B9 /* ThemeStoreInfo.swift */; };
-		D4CACF3028290509000007FB /* MainMyPageButtonsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CACF2A28290509000007FB /* MainMyPageButtonsView.xib */; };
+		D4973C5C2834E7140045065A /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4973C5B2834E7140045065A /* LoginWebViewController.swift */; };
+		D4973C5E2834F3640045065A /* MainMyPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4973C5D2834F3640045065A /* MainMyPageService.swift */; };
+		D4973C602834F39D0045065A /* MyPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4973C5F2834F39D0045065A /* MyPageModel.swift */; };
 		D4CACF3128290509000007FB /* RecentVisitStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CACF2B28290509000007FB /* RecentVisitStoreTableViewCell.swift */; };
 		D4CACF3228290509000007FB /* RecentVisitStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CACF2C28290509000007FB /* RecentVisitStoreTableViewCell.xib */; };
-		D4CACF3328290509000007FB /* MainMyPageButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CACF2D28290509000007FB /* MainMyPageButtonsView.swift */; };
-		D4CACF3428290509000007FB /* MainMyPageButtonsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CACF2E28290509000007FB /* MainMyPageButtonsStoryboard.storyboard */; };
 		D4CACF3528290509000007FB /* MainMyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CACF2F28290509000007FB /* MainMyPage.swift */; };
+		D4FA30F82832232300897085 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FA30F62832232300897085 /* LoginViewController.swift */; };
+		D4FA30F92832232300897085 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FA30F72832232300897085 /* LoginViewController.xib */; };
+		D4FA30FC28322E2300897085 /* LoginSevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FA30FB28322E2300897085 /* LoginSevice.swift */; };
+		D4FA30FE28322EDA00897085 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FA30FD28322EDA00897085 /* LoginModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +127,8 @@
 		D41075C727D136EC00B0E0E0 /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
 		D422A65627D0F25D00F72755 /* AccountsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsApi.swift; sourceTree = "<group>"; };
 		D422A65827D0F27100F72755 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		D42EB1402833626A0086FA68 /* SixButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixButtonTableViewCell.swift; sourceTree = "<group>"; };
+		D42EB1412833626A0086FA68 /* SixButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SixButtonTableViewCell.xib; sourceTree = "<group>"; };
 		D44B888328311C6E0072EB39 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		D44B888428311C6E0072EB39 /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		D456D0C1282A441F0018080D /* MyFavoriteStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteStoreViewController.swift; sourceTree = "<group>"; };
@@ -171,12 +179,16 @@
 		D46C78292829001600DE54B9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D46C78372829002F00DE54B9 /* StoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreInfo.swift; sourceTree = "<group>"; };
 		D46C78382829002F00DE54B9 /* ThemeStoreInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeStoreInfo.swift; sourceTree = "<group>"; };
-		D4CACF2A28290509000007FB /* MainMyPageButtonsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMyPageButtonsView.xib; sourceTree = "<group>"; };
+		D4973C5B2834E7140045065A /* LoginWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
+		D4973C5D2834F3640045065A /* MainMyPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMyPageService.swift; sourceTree = "<group>"; };
+		D4973C5F2834F39D0045065A /* MyPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageModel.swift; sourceTree = "<group>"; };
 		D4CACF2B28290509000007FB /* RecentVisitStoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentVisitStoreTableViewCell.swift; sourceTree = "<group>"; };
 		D4CACF2C28290509000007FB /* RecentVisitStoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecentVisitStoreTableViewCell.xib; sourceTree = "<group>"; };
-		D4CACF2D28290509000007FB /* MainMyPageButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMyPageButtonsView.swift; sourceTree = "<group>"; };
-		D4CACF2E28290509000007FB /* MainMyPageButtonsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMyPageButtonsStoryboard.storyboard; sourceTree = "<group>"; };
 		D4CACF2F28290509000007FB /* MainMyPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMyPage.swift; sourceTree = "<group>"; };
+		D4FA30F62832232300897085 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D4FA30F72832232300897085 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		D4FA30FB28322E2300897085 /* LoginSevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSevice.swift; sourceTree = "<group>"; };
+		D4FA30FD28322EDA00897085 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,9 +296,11 @@
 		D41075C627D136DB00B0E0E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D4FA30FD28322EDA00897085 /* LoginModel.swift */,
 				D46C78372829002F00DE54B9 /* StoreInfo.swift */,
 				D46C78382829002F00DE54B9 /* ThemeStoreInfo.swift */,
 				D41075C727D136EC00B0E0E0 /* CommonModel.swift */,
+				D4973C5F2834F39D0045065A /* MyPageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -314,6 +328,17 @@
 				D41075C927D136FA00B0E0E0 /* ApiContants */,
 			);
 			path = "api function";
+			sourceTree = "<group>";
+		};
+		D42EB1442833626E0086FA68 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D4CACF2B28290509000007FB /* RecentVisitStoreTableViewCell.swift */,
+				D4CACF2C28290509000007FB /* RecentVisitStoreTableViewCell.xib */,
+				D42EB1402833626A0086FA68 /* SixButtonTableViewCell.swift */,
+				D42EB1412833626A0086FA68 /* SixButtonTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		D448BDB427CE43F800EE5E98 /* Lauch Option */ = {
@@ -363,8 +388,8 @@
 		D44B888028311BDF0072EB39 /* Login&SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				D44B888328311C6E0072EB39 /* FirstViewController.swift */,
-				D44B888428311C6E0072EB39 /* FirstViewController.xib */,
+				D4FA30FA2832252700897085 /* Login */,
+				D4FA30F5283222C500897085 /* FirstScreen */,
 			);
 			path = "Login&SignUp";
 			sourceTree = "<group>";
@@ -494,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				D466007727CE3403003CA35D /* Info.plist */,
+				D4FA31002832368700897085 /* NetworkService */,
 				D41075C627D136DB00B0E0E0 /* Models */,
 				D422A65527D0F23700F72755 /* api function */,
 				D448BDB627CE442A00EE5E98 /* Resource */,
@@ -601,16 +627,40 @@
 		D4CACF2928290509000007FB /* MainMyPage */ = {
 			isa = PBXGroup;
 			children = (
-				D4CACF2A28290509000007FB /* MainMyPageButtonsView.xib */,
-				D4CACF2B28290509000007FB /* RecentVisitStoreTableViewCell.swift */,
-				D4CACF2C28290509000007FB /* RecentVisitStoreTableViewCell.xib */,
-				D4CACF2D28290509000007FB /* MainMyPageButtonsView.swift */,
-				D4CACF2E28290509000007FB /* MainMyPageButtonsStoryboard.storyboard */,
+				D42EB1442833626E0086FA68 /* Cells */,
 				D4CACF2F28290509000007FB /* MainMyPage.swift */,
 			);
 			name = MainMyPage;
 			path = Udong/Resource/MyPage/MainMyPage;
 			sourceTree = SOURCE_ROOT;
+		};
+		D4FA30F5283222C500897085 /* FirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D44B888328311C6E0072EB39 /* FirstViewController.swift */,
+				D44B888428311C6E0072EB39 /* FirstViewController.xib */,
+			);
+			path = FirstScreen;
+			sourceTree = "<group>";
+		};
+		D4FA30FA2832252700897085 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D4FA30F62832232300897085 /* LoginViewController.swift */,
+				D4FA30F72832232300897085 /* LoginViewController.xib */,
+				D4973C5B2834E7140045065A /* LoginWebViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D4FA31002832368700897085 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				D4FA30FB28322E2300897085 /* LoginSevice.swift */,
+				D4973C5D2834F3640045065A /* MainMyPageService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -677,15 +727,15 @@
 				D46C782A2829001600DE54B9 /* MainStoreListTalbeViewCell.storyboard in Resources */,
 				D456D0D3282A658A0018080D /* MyCustomStoreTableViewCell.xib in Resources */,
 				D466007627CE3403003CA35D /* LaunchScreen.storyboard in Resources */,
-				D4CACF3028290509000007FB /* MainMyPageButtonsView.xib in Resources */,
 				D456D0F0282BA0B10018080D /* QnARowTableViewCell.xib in Resources */,
+				D4FA30F92832232300897085 /* LoginViewController.xib in Resources */,
 				D456D13E282D324A0018080D /* BadgeCollectionViewCell.xib in Resources */,
 				4733864C27D904AA0018A701 /* rectangle.png in Resources */,
 				D456D0F7282BAE910018080D /* MemeberSecessionViewController.xib in Resources */,
 				D466007327CE3403003CA35D /* Assets.xcassets in Resources */,
 				D4CACF3228290509000007FB /* RecentVisitStoreTableViewCell.xib in Resources */,
 				4753CB3C27D89D4500E860B4 /* new-moon.png in Resources */,
-				D4CACF3428290509000007FB /* MainMyPageButtonsStoryboard.storyboard in Resources */,
+				D42EB1432833626A0086FA68 /* SixButtonTableViewCell.xib in Resources */,
 				D44B888628311C6E0072EB39 /* FirstViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,6 +772,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4FA30FE28322EDA00897085 /* LoginModel.swift in Sources */,
+				D4973C5C2834E7140045065A /* LoginWebViewController.swift in Sources */,
 				47E587842819A80800707531 /* ReviewDetailCollectionViewCell.swift in Sources */,
 				D4CACF3528290509000007FB /* MainMyPage.swift in Sources */,
 				D46C782B2829001600DE54B9 /* StoreListTableViewCellCollectionViewCell.swift in Sources */,
@@ -730,6 +782,7 @@
 				D46C782D2829001600DE54B9 /* MainStoreListViewController.swift in Sources */,
 				D46C78342829001600DE54B9 /* MainCollectionViewSmallCell.swift in Sources */,
 				D46C78112829000C00DE54B9 /* ProfileEditViewController.swift in Sources */,
+				D4973C602834F39D0045065A /* MyPageModel.swift in Sources */,
 				D456D0DD282B8EFD0018080D /* MyReviewsViewController.swift in Sources */,
 				D422A65927D0F27100F72755 /* APIConstants.swift in Sources */,
 				47BF970127DDDC8900C9C398 /* RecommendItemViewController.swift in Sources */,
@@ -738,6 +791,7 @@
 				D466006A27CE3402003CA35D /* AppDelegate.swift in Sources */,
 				D456D0C6282A4DFE0018080D /* MyFavortieListPageViewController.swift in Sources */,
 				D46C783A2829002F00DE54B9 /* ThemeStoreInfo.swift in Sources */,
+				D4FA30FC28322E2300897085 /* LoginSevice.swift in Sources */,
 				D466006C27CE3402003CA35D /* SceneDelegate.swift in Sources */,
 				47475AD827D34EC900A5C24D /* StoreDetailViewController.swift in Sources */,
 				47F89D7627E866C5004C8F56 /* StoreReviewListViewController.swift in Sources */,
@@ -754,16 +808,18 @@
 				D456D0F6282BAE910018080D /* MemeberSecessionViewController.swift in Sources */,
 				D4CACF3128290509000007FB /* RecentVisitStoreTableViewCell.swift in Sources */,
 				D456D0EB282BA0A40018080D /* QnASectionTableViewCell.swift in Sources */,
-				D4CACF3328290509000007FB /* MainMyPageButtonsView.swift in Sources */,
 				D456D0EF282BA0B10018080D /* QnARowTableViewCell.swift in Sources */,
 				47F89D7227E85C94004C8F56 /* ReviewCollectionViewCell.swift in Sources */,
 				D422A65727D0F25D00F72755 /* AccountsApi.swift in Sources */,
 				4728DC2F27E250B900C9C640 /* CircleCollectionViewCell.swift in Sources */,
+				D42EB1422833626A0086FA68 /* SixButtonTableViewCell.swift in Sources */,
 				D456D0C8282A50AC0018080D /* MyWishStoreListTableViewController.swift in Sources */,
 				D456D0E7282B9E5B0018080D /* QnAViewController.swift in Sources */,
+				D4973C5E2834F3640045065A /* MainMyPageService.swift in Sources */,
 				471A75F427E5CAF0007EE47C /* MenuCollectionViewCell.swift in Sources */,
 				475742C2281E45A4002AFA6E /* RecommendItemCollectionViewCell.swift in Sources */,
 				47F89D7827E870F9004C8F56 /* ReviewDetailViewController.swift in Sources */,
+				D4FA30F82832232300897085 /* LoginViewController.swift in Sources */,
 				D456D0C4282A4B900018080D /* Colors.swift in Sources */,
 				D46C782C2829001600DE54B9 /* MainStoreListTableViewCell.swift in Sources */,
 				D46C78392829002F00DE54B9 /* StoreInfo.swift in Sources */,
@@ -799,6 +855,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -861,6 +918,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -920,6 +978,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -957,6 +1016,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

@@ -7,8 +7,7 @@
 
 import Foundation
 import UIKit
-
-
+import KakaoSDKUser
 import SnapKit
 
 class MainViewController: UIViewController {
@@ -277,7 +276,6 @@ extension MainViewController: tapMoreButton {
         backBarButtonItem.tintColor = .black
         self.navigationController?.navigationBar.backgroundColor = .none
         self.navigationItem.backBarButtonItem = backBarButtonItem
-        print("cute")
         self.navigationController?.pushViewController(nextVC, animated: false)
     }
 }

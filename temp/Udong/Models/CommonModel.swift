@@ -13,6 +13,14 @@ struct NetkResponse<T: Codable>: Codable{
     let error: Bool?
     
 }
+
+struct NetkResponseWithArray<T: Codable>: Codable{
+    let success: Bool?
+    var data: [T]?
+    let error: Bool?
+    
+}
+
 // MARK: - Encode/decode helpers
 
 class JSONNull: Codable, Hashable {
@@ -24,7 +32,7 @@ class JSONNull: Codable, Hashable {
     public var hashValue: Int {
         return 0
     }
-
+    
     public init() {}
 
     public required init(from decoder: Decoder) throws {
@@ -37,5 +45,6 @@ class JSONNull: Codable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encodeNil()
+       
     }
 }

@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
         if KeyChain.load(key: "token") != nil {
-            self.window?.rootViewController = UINavigationController(rootViewController: MainMyPageViewController())
+            self.window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
         }
         else {
             self.window?.rootViewController = UINavigationController(rootViewController: FirstViewController())

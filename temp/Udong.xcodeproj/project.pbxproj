@@ -33,6 +33,9 @@
 		47F89D7827E870F9004C8F56 /* ReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F89D7727E870F9004C8F56 /* ReviewDetailViewController.swift */; };
 		5A688CB4499EAB6C741ACE65 /* libPods-Udong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA434DF8647ECF1B067F429D /* libPods-Udong.a */; };
 		D41075C827D136EC00B0E0E0 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41075C727D136EC00B0E0E0 /* CommonModel.swift */; };
+		D4134F9D2868940200E40EAB /* BadgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4134F9C2868940200E40EAB /* BadgeService.swift */; };
+		D4134F9F286895BC00E40EAB /* BadgeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4134F9E286895BC00E40EAB /* BadgeModel.swift */; };
+		D4134FA12868A9AF00E40EAB /* ImageUploadToS3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4134FA02868A9AF00E40EAB /* ImageUploadToS3.swift */; };
 		D422A65727D0F25D00F72755 /* AccountsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422A65627D0F25D00F72755 /* AccountsApi.swift */; };
 		D422A65927D0F27100F72755 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D422A65827D0F27100F72755 /* APIConstants.swift */; };
 		D42EB1422833626A0086FA68 /* SixButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42EB1402833626A0086FA68 /* SixButtonTableViewCell.swift */; };
@@ -125,6 +128,9 @@
 		936AD1EFEEA77D71C6B51513 /* Pods-Udong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udong.release.xcconfig"; path = "Target Support Files/Pods-Udong/Pods-Udong.release.xcconfig"; sourceTree = "<group>"; };
 		AA434DF8647ECF1B067F429D /* libPods-Udong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Udong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41075C727D136EC00B0E0E0 /* CommonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
+		D4134F9C2868940200E40EAB /* BadgeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeService.swift; sourceTree = "<group>"; };
+		D4134F9E286895BC00E40EAB /* BadgeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeModel.swift; sourceTree = "<group>"; };
+		D4134FA02868A9AF00E40EAB /* ImageUploadToS3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadToS3.swift; sourceTree = "<group>"; };
 		D422A65627D0F25D00F72755 /* AccountsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsApi.swift; sourceTree = "<group>"; };
 		D422A65827D0F27100F72755 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		D42EB1402833626A0086FA68 /* SixButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -301,6 +307,7 @@
 				D46C78382829002F00DE54B9 /* ThemeStoreInfo.swift */,
 				D41075C727D136EC00B0E0E0 /* CommonModel.swift */,
 				D4973C5F2834F39D0045065A /* MyPageModel.swift */,
+				D4134F9E286895BC00E40EAB /* BadgeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -488,12 +495,12 @@
 			path = MemberSecession;
 			sourceTree = "<group>";
 		};
-		D456D13F282D38160018080D /*  CertificationTown */ = {
+		D456D13F282D38160018080D /* CertificationTown */ = {
 			isa = PBXGroup;
 			children = (
 				D456D140282D384B0018080D /*  CertificationTownViewController.swift */,
 			);
-			path = " CertificationTown";
+			path = CertificationTown;
 			sourceTree = "<group>";
 		};
 		D466005D27CE3402003CA35D = {
@@ -556,7 +563,7 @@
 		D46C78072829000C00DE54B9 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				D456D13F282D38160018080D /*  CertificationTown */,
+				D456D13F282D38160018080D /* CertificationTown */,
 				D456D0F1282BACD80018080D /* MemberSecession */,
 				D456D0E5282B9E460018080D /* QnA */,
 				D456D0DB282B8EE70018080D /* MyReviews */,
@@ -658,6 +665,8 @@
 			children = (
 				D4FA30FB28322E2300897085 /* LoginSevice.swift */,
 				D4973C5D2834F3640045065A /* MainMyPageService.swift */,
+				D4134F9C2868940200E40EAB /* BadgeService.swift */,
+				D4134FA02868A9AF00E40EAB /* ImageUploadToS3.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -800,6 +809,7 @@
 				476F1FB827E30280001EBC47 /* Top5DetailViewController.swift in Sources */,
 				D456D0E3282B92440018080D /* MyReivewsTableViewCell.swift in Sources */,
 				D46C78322829001600DE54B9 /* MainCollectionViewHeader.swift in Sources */,
+				D4134F9D2868940200E40EAB /* BadgeService.swift in Sources */,
 				4733864627D8E3C10018A701 /* StoreImageCell.swift in Sources */,
 				D46C78352829001600DE54B9 /* MainCollectionViewLargeCell.swift in Sources */,
 				47F683C027FF4ED50081CC9F /* Top5CollectionViewCell.swift in Sources */,
@@ -813,11 +823,13 @@
 				D422A65727D0F25D00F72755 /* AccountsApi.swift in Sources */,
 				4728DC2F27E250B900C9C640 /* CircleCollectionViewCell.swift in Sources */,
 				D42EB1422833626A0086FA68 /* SixButtonTableViewCell.swift in Sources */,
+				D4134FA12868A9AF00E40EAB /* ImageUploadToS3.swift in Sources */,
 				D456D0C8282A50AC0018080D /* MyWishStoreListTableViewController.swift in Sources */,
 				D456D0E7282B9E5B0018080D /* QnAViewController.swift in Sources */,
 				D4973C5E2834F3640045065A /* MainMyPageService.swift in Sources */,
 				471A75F427E5CAF0007EE47C /* MenuCollectionViewCell.swift in Sources */,
 				475742C2281E45A4002AFA6E /* RecommendItemCollectionViewCell.swift in Sources */,
+				D4134F9F286895BC00E40EAB /* BadgeModel.swift in Sources */,
 				47F89D7827E870F9004C8F56 /* ReviewDetailViewController.swift in Sources */,
 				D4FA30F82832232300897085 /* LoginViewController.swift in Sources */,
 				D456D0C4282A4B900018080D /* Colors.swift in Sources */,

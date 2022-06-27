@@ -29,7 +29,7 @@ class TabBarViewController: UITabBarController{
         let myPageTabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), tag: 4)
         
         
-        let homeTab = UINavigationController(rootViewController: StoreDetailViewController())
+        let homeTab = UINavigationController(rootViewController: MainViewController())
         homeTab.tabBarItem = homeTabBarItem
         //homeTab.tabBarItem.imageInsets = UIEdgeInsets(top: 300, left: 0, bottom: -300, right: 0)
         let searchTab = UINavigationController(rootViewController: TierInfoViewController())
@@ -38,7 +38,7 @@ class TabBarViewController: UITabBarController{
         cameraTab.tabBarItem = cameraTabBarItem
         let boardTab = UINavigationController(rootViewController: StoreDetailViewController())
         boardTab.tabBarItem = boardTabBarItem
-        let myPageTab = UINavigationController(rootViewController: StoreDetailViewController())
+        let myPageTab = UINavigationController(rootViewController: MainMyPageViewController())
         myPageTab.tabBarItem = myPageTabBarItem
         
         let tabs = NSArray(objects: homeTab, searchTab, cameraTab, boardTab, myPageTab)

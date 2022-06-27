@@ -15,10 +15,10 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var kakaoLoginView: UIImageView!
     @IBOutlet var logoImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         diplaySetting()
-        
     }
     
     private func diplaySetting(){
@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
     }
     
     private func goMain(){
-        let nextVC = MainViewController()
+        let nextVC = MainMyPageViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

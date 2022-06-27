@@ -10,6 +10,9 @@ import UIKit
 
 class MyBadgeViewController: UIViewController {
     
+    var allList: [BadgeModel]?
+    var usingList: [BadgeModel]?
+    
     var usingBadgeCollectionView: UICollectionView = {
         let fl = UICollectionViewFlowLayout()
         fl.scrollDirection = .horizontal
@@ -49,9 +52,11 @@ class MyBadgeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("=============================================")
         title = "내 뱃지"
         displaySetting()
         settingCollectionView()
+        loadBadge()
     }
     
     private func displaySetting(){
@@ -80,6 +85,39 @@ class MyBadgeViewController: UIViewController {
             $0.bottom.equalToSuperview()
         }
     }
+    private func loadBadge(){
+        BadgeService.shared.loadBadge { [weak self] result in
+            switch result {
+            case .success(let networkReulst):
+                if let temp = networkReulst as? NetkResponseWithArray<BadgeModel>,
+                   let badgeList = temp.data {
+                    badgeList.forEach{
+                        print($0)
+                    }
+                    self?.allList = badgeList
+                    self?.usingList?.removeAll()
+                    badgeList.forEach{
+                        if $0.active ?? false {
+                            self?.usingList?.append($0)
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        self?.usingBadgeCollectionView.reloadData()
+                        self?.allBadgeCollectionView.reloadData()
+                    }
+                }
+            case .requestErr(_):
+                fatalError("fuck you")
+            case .pathErr:
+                fatalError("fuck you")
+            case .serverErr:
+                fatalError("fuck you")
+            case .networkFail:
+                fatalError("fuck you")
+            }
+            
+         }
+    }
     
     private func settingCollectionView(){
         usingBadgeCollectionView.register(UINib(nibName: "BadgeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BadgeCollectionViewCell")
@@ -93,11 +131,19 @@ class MyBadgeViewController: UIViewController {
 
 extension MyBadgeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        if collectionView == allBadgeCollectionView {
+            return allList?.count ?? 0
+        } else {
+            return usingList?.count ?? 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+       
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BadgeCollectionViewCell", for: indexPath) as? BadgeCollectionViewCell else {return UICollectionViewCell()}
+        if collectionView == allBadgeCollectionView {
+            cell.badgeNameLabel.text = allList?[indexPath.row].badgeName
+        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

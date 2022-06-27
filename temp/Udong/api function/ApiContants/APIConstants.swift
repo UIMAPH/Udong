@@ -17,6 +17,7 @@ struct APIConstants {
     
     // Base URL
     static let baseURL = "http://15.164.158.186:8080/v1/"
+    static let badgeURL = "users/badges"
     static let loginURL = baseURL + "oauth/kakao"
     static let profilBasic = "users/"
 }

@@ -27,6 +27,7 @@ struct MainMyPageService{
                 guard let statusCode = dataResponse.response?.statusCode else {return}
                 guard let value = dataResponse.value else {return}
                 let networkResult = self.judgeStatus(by: statusCode, value)
+                print(networkResult)
                 completion(networkResult)
             case .failure: completion(.pathErr)
             }

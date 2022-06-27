@@ -9,7 +9,7 @@ struct BadgeService{
     static let shared = BadgeService()
     
     private func makeParameter(accessToken : String) -> Parameters {
-        return ["accessToken" : accessToken]
+        return Parameters()
     }
     
     func loadBadge(completion : @escaping (NetworkResult<Any>) -> Void)

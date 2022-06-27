@@ -1,10 +1,3 @@
-//
-//  test.swift
-//  movieAPI
-//
-//  Created by  sangyeon on 2022/04/05.
-//
-
 import Foundation
 
 //
